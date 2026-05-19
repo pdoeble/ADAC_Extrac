@@ -33,6 +33,15 @@ PLOT_MODE_OPTIONS = [
 DEFAULT_PERCENTILES = [("Worst", 0.0), *[(f"P{value}", float(value)) for value in range(5, 100, 5)], ("Top", 100.0)]
 DEFAULT_PERCENTILES_TEXT = ", ".join(label if label in {"Worst", "Top"} else label[1:] for label, _ in DEFAULT_PERCENTILES)
 DEFAULT_PERCENTILE_LEGEND_TEXT = "Worst, 25, 50, 75, Top"
+DEFAULT_PLOT_MODE = "percentiles"
+DEFAULT_PERCENTILE_DISPLAY = "lines"
+DEFAULT_PERCENTILE_LEGEND_MODE = "colorbar"
+DEFAULT_PERCENTILE_DASH = "solid"
+DEFAULT_X_AXIS = "soc_percent"
+DEFAULT_Y_AXIS = "charging_power_relative_percent"
+DEFAULT_COLOR_BY = "manufacturer"
+DEFAULT_TITLE_TEXT = "100 EV Models / Charging Power"
+DEFAULT_PUBLICATION_OPTIONS = ["show_title", "cycle_line_dash"]
 
 PERCENTILE_DISPLAY_OPTIONS = [
     {"label": "Lines", "value": "lines"},
@@ -134,6 +143,21 @@ class PlotStyle:
     line_shape: str = "linear"
     show_title: bool = False
     cycle_line_dash: bool = True
+
+
+DEFAULT_GUI_STYLE = PlotStyle(
+    title_text=DEFAULT_TITLE_TEXT,
+    plot_width=500,
+    plot_height=400,
+    font_size=16,
+    title_font_size=16,
+    axis_title_font_size=16,
+    tick_font_size=16,
+    legend_font_size=16,
+    legend_position="inside_top_right",
+    show_title=True,
+    cycle_line_dash=True,
+)
 
 
 DASH_PATTERNS = ["solid", "dash", "dot", "dashdot"]
@@ -644,7 +668,8 @@ def build_percentile_heatmap_grid(
                 z_row.append(None)
                 continue
             top_y = max(y_at_percentile for _, y_at_percentile in pairs)
-            if y_value > top_y:
+            worst_y = min(y_at_percentile for _, y_at_percentile in pairs)
+            if y_value > top_y or y_value < worst_y:
                 z_row.append(None)
                 continue
             z_row.append(_inverse_percentile_for_y(pairs, y_value))
@@ -841,7 +866,7 @@ def build_figure(
             plot_bgcolor="white",
             hovermode="closest",
             showlegend=percentile_legend_mode == "entries",
-            legend=_legend_layout(style),
+            legend=_legend_layout(style, "reversed"),
             margin=_layout_margins(style),
         )
         fig.update_xaxes(
@@ -1056,7 +1081,7 @@ def create_app(data_dir: str | Path = "output"):
 
     dataset = load_dataset(data_dir)
     default_selected = dataset.vehicle_ids[:8]
-    default_style = PlotStyle()
+    default_style = DEFAULT_GUI_STYLE
 
     app = Dash(__name__, title="ADAC EV Charging Curves")
     graph_config = {
@@ -1123,7 +1148,7 @@ def create_app(data_dir: str | Path = "output"):
                             "Plot mode",
                             dcc.RadioItems(
                                 PLOT_MODE_OPTIONS,
-                                "vehicles",
+                                DEFAULT_PLOT_MODE,
                                 id="plot-mode",
                                 inline=True,
                                 inputStyle={"marginRight": "4px", "marginLeft": "0"},
@@ -1158,7 +1183,7 @@ def create_app(data_dir: str | Path = "output"):
                             "Percentile display",
                             dcc.Dropdown(
                                 PERCENTILE_DISPLAY_OPTIONS,
-                                "lines",
+                                DEFAULT_PERCENTILE_DISPLAY,
                                 id="percentile-display",
                                 clearable=False,
                             ),
@@ -1169,7 +1194,7 @@ def create_app(data_dir: str | Path = "output"):
                             "Percentile legend",
                             dcc.Dropdown(
                                 PERCENTILE_LEGEND_MODE_OPTIONS,
-                                "entries",
+                                DEFAULT_PERCENTILE_LEGEND_MODE,
                                 id="percentile-legend-mode",
                                 clearable=False,
                             ),
@@ -1180,18 +1205,18 @@ def create_app(data_dir: str | Path = "output"):
                             "Percentile line dash",
                             dcc.Dropdown(
                                 PERCENTILE_DASH_OPTIONS,
-                                "cycle",
+                                DEFAULT_PERCENTILE_DASH,
                                 id="percentile-dash",
                                 clearable=False,
                             ),
                         ]
                     ),
-                    html.Label(["X axis", dcc.Dropdown(AXIS_OPTIONS, "soc_percent", id="x-axis", clearable=False)]),
+                    html.Label(["X axis", dcc.Dropdown(AXIS_OPTIONS, DEFAULT_X_AXIS, id="x-axis", clearable=False)]),
                     html.Label(
-                        ["Y axis", dcc.Dropdown(AXIS_OPTIONS, "charging_power_kw", id="y-axis", clearable=False)]
+                        ["Y axis", dcc.Dropdown(AXIS_OPTIONS, DEFAULT_Y_AXIS, id="y-axis", clearable=False)]
                     ),
                     html.Label(
-                        ["Line color", dcc.Dropdown(COLOR_OPTIONS, "manufacturer", id="color-by", clearable=False)]
+                        ["Line color", dcc.Dropdown(COLOR_OPTIONS, DEFAULT_COLOR_BY, id="color-by", clearable=False)]
                     ),
                     html.Label(
                         ["Line shape", dcc.Dropdown(LINE_SHAPE_OPTIONS, default_style.line_shape, id="line-shape", clearable=False)]
@@ -1213,7 +1238,7 @@ def create_app(data_dir: str | Path = "output"):
                             dcc.Input(
                                 id="title-text",
                                 type="text",
-                                value="ADAC/Infogram Charging Curves",
+                                value=default_style.title_text or DEFAULT_TITLE_TEXT,
                             ),
                         ]
                     ),
@@ -1366,7 +1391,7 @@ def create_app(data_dir: str | Path = "output"):
                                     {"label": "Show title", "value": "show_title"},
                                     {"label": "Cycle line styles", "value": "cycle_line_dash"},
                                 ],
-                                value=["cycle_line_dash"],
+                                value=DEFAULT_PUBLICATION_OPTIONS,
                                 inputStyle={"marginRight": "4px"},
                                 labelStyle={"display": "block", "fontWeight": "400"},
                             ),
@@ -1383,13 +1408,16 @@ def create_app(data_dir: str | Path = "output"):
                     figure=build_figure(
                         dataset,
                         default_selected,
-                        "soc_percent",
-                        "charging_power_kw",
-                        "manufacturer",
+                        DEFAULT_X_AXIS,
+                        DEFAULT_Y_AXIS,
+                        DEFAULT_COLOR_BY,
                         default_style,
-                        "vehicles",
+                        DEFAULT_PLOT_MODE,
                         DEFAULT_PERCENTILES_TEXT,
                         DEFAULT_PERCENTILE_LEGEND_TEXT,
+                        DEFAULT_PERCENTILE_DISPLAY,
+                        DEFAULT_PERCENTILE_LEGEND_MODE,
+                        DEFAULT_PERCENTILE_DASH,
                     ),
                     config=graph_config,
                 ),

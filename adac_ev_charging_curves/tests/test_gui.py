@@ -71,7 +71,9 @@ def test_gui_dataset_and_figure(tmp_path) -> None:
     assert styled.layout.height == 500
     assert styled.layout.font.size == 16
     assert styled.layout.title.font.size == 24
-    assert styled.layout.title.text == "ADAC/Infogram charging curves - 2 vehicle(s)"
+    assert styled.layout.title.text == "<b>ADAC/Infogram charging curves - 2 vehicle(s)</b>"
+    assert styled.layout.title.x == 0.5
+    assert styled.layout.title.xanchor == "center"
     assert styled.data[0].showlegend is False
     assert styled.data[0].mode == "lines"
     assert styled.data[0].line.width == 5
@@ -143,6 +145,20 @@ def test_gui_dataset_and_figure(tmp_path) -> None:
     )
     assert percentile_heatmap.data[0].type == "heatmap"
     assert percentile_heatmap.data[0].showscale is True
+    assert all(value is None for value in percentile_heatmap.data[0].z[0])
+    assert percentile_heatmap.layout.legend.traceorder == "reversed"
+
+    inside_bottom_left = build_figure(
+        dataset,
+        ["car_a", "car_b", "car_c"],
+        "soc_percent",
+        "charging_power_kw",
+        "manufacturer",
+        make_plot_style(legend_position="inside_bottom_left"),
+    )
+    assert inside_bottom_left.layout.legend.x == 0.02
+    assert inside_bottom_left.layout.legend.xanchor == "left"
+    assert inside_bottom_left.layout.legend.yanchor == "bottom"
 
 
 def test_parse_percentiles() -> None:

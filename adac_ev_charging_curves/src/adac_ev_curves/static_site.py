@@ -10,6 +10,7 @@ from .gui import (
     COLOR_OPTIONS,
     DEFAULT_PERCENTILE_LEGEND_TEXT,
     DEFAULT_PERCENTILES_TEXT,
+    DEFAULT_COLOR_BY,
     LEGEND_POSITION_OPTIONS,
     LINE_SHAPE_OPTIONS,
     PERCENTILE_DASH_OPTIONS,
@@ -17,6 +18,14 @@ from .gui import (
     PERCENTILE_LEGEND_MODE_OPTIONS,
     PLOT_MODE_OPTIONS,
     TABLE_COLUMNS,
+    DEFAULT_PERCENTILE_DASH,
+    DEFAULT_PERCENTILE_DISPLAY,
+    DEFAULT_PERCENTILE_LEGEND_MODE,
+    DEFAULT_PLOT_MODE,
+    DEFAULT_PUBLICATION_OPTIONS,
+    DEFAULT_TITLE_TEXT,
+    DEFAULT_X_AXIS,
+    DEFAULT_Y_AXIS,
     load_dataset,
 )
 
@@ -92,6 +101,16 @@ def build_static_site(data_dir: str | Path = "output", out_dir: str | Path = "si
             "tableColumns": TABLE_COLUMNS,
             "defaultPercentiles": DEFAULT_PERCENTILES_TEXT,
             "defaultPercentileLegendEntries": DEFAULT_PERCENTILE_LEGEND_TEXT,
+            "defaultPlotMode": DEFAULT_PLOT_MODE,
+            "defaultPercentileDisplay": DEFAULT_PERCENTILE_DISPLAY,
+            "defaultPercentileLegendMode": DEFAULT_PERCENTILE_LEGEND_MODE,
+            "defaultPercentileDash": DEFAULT_PERCENTILE_DASH,
+            "defaultXAxis": DEFAULT_X_AXIS,
+            "defaultYAxis": DEFAULT_Y_AXIS,
+            "defaultColorBy": DEFAULT_COLOR_BY,
+            "defaultLegendPosition": "inside_top_right",
+            "defaultTitle": DEFAULT_TITLE_TEXT,
+            "defaultPublicationOptions": DEFAULT_PUBLICATION_OPTIONS,
         },
     }
 
@@ -183,18 +202,18 @@ def _index_html() -> str:
       <label class="wide">Line color<select id="color-by"></select></label>
       <label class="wide">Line shape<select id="line-shape"></select></label>
       <label class="wide">Legend position<select id="legend-position"></select></label>
-      <label class="wide">Figure title<input id="title-text" type="text" value="ADAC/Infogram Charging Curves"></label>
+      <label class="wide">Figure title<input id="title-text" type="text" value="100 EV Models / Charging Power"></label>
       <label>Font family<input id="font-family" type="text" value="Times New Roman"></label>
       <label>Line width<input id="line-width" type="number" min="0.2" max="12" step="0.2" value="1.4"></label>
       <label>Marker size<input id="marker-size" type="number" min="0" max="20" step="0.5" value="0"></label>
       <label>Opacity<input id="line-opacity" type="number" min="0.05" max="1" step="0.05" value="1"></label>
-      <label>Figure width [px]<input id="plot-width" type="number" min="250" max="4000" step="1" value="336"></label>
-      <label>Figure height [px]<input id="plot-height" type="number" min="180" max="3000" step="1" value="250"></label>
-      <label>Base font size<input id="font-size" type="number" min="8" max="40" step="1" value="11"></label>
-      <label>Title font size<input id="title-font-size" type="number" min="10" max="60" step="1" value="12"></label>
-      <label>Axis title font size<input id="axis-title-font-size" type="number" min="8" max="44" step="1" value="12"></label>
-      <label>Tick font size<input id="tick-font-size" type="number" min="6" max="36" step="1" value="11"></label>
-      <label>Legend font size<input id="legend-font-size" type="number" min="6" max="36" step="1" value="11"></label>
+      <label>Figure width [px]<input id="plot-width" type="number" min="250" max="4000" step="1" value="500"></label>
+      <label>Figure height [px]<input id="plot-height" type="number" min="180" max="3000" step="1" value="400"></label>
+      <label>Base font size<input id="font-size" type="number" min="8" max="40" step="1" value="16"></label>
+      <label>Title font size<input id="title-font-size" type="number" min="10" max="60" step="1" value="16"></label>
+      <label>Axis title font size<input id="axis-title-font-size" type="number" min="8" max="44" step="1" value="16"></label>
+      <label>Tick font size<input id="tick-font-size" type="number" min="6" max="36" step="1" value="16"></label>
+      <label>Legend font size<input id="legend-font-size" type="number" min="6" max="36" step="1" value="16"></label>
       <label class="wide">SAE options<div id="publication-options" class="check-row"></div></label>
       <button id="export-svg">Export SVG</button>
       <div id="export-status"></div>
@@ -276,20 +295,21 @@ def _index_html() -> str:
     }
 
     function renderControls() {
-      fillRadio("plot-mode", DATA.ui.plotModeOptions, "vehicles");
-      fillSelect("percentile-display", DATA.ui.percentileDisplayOptions, "lines");
-      fillSelect("percentile-legend-mode", DATA.ui.percentileLegendModeOptions, "entries");
-      fillSelect("percentile-dash", DATA.ui.percentileDashOptions, "cycle");
-      fillSelect("x-axis", DATA.ui.axisOptions, "soc_percent");
-      fillSelect("y-axis", DATA.ui.axisOptions, "charging_power_kw");
-      fillSelect("color-by", DATA.ui.colorOptions, "manufacturer");
+      fillRadio("plot-mode", DATA.ui.plotModeOptions, DATA.ui.defaultPlotMode);
+      fillSelect("percentile-display", DATA.ui.percentileDisplayOptions, DATA.ui.defaultPercentileDisplay);
+      fillSelect("percentile-legend-mode", DATA.ui.percentileLegendModeOptions, DATA.ui.defaultPercentileLegendMode);
+      fillSelect("percentile-dash", DATA.ui.percentileDashOptions, DATA.ui.defaultPercentileDash);
+      fillSelect("x-axis", DATA.ui.axisOptions, DATA.ui.defaultXAxis);
+      fillSelect("y-axis", DATA.ui.axisOptions, DATA.ui.defaultYAxis);
+      fillSelect("color-by", DATA.ui.colorOptions, DATA.ui.defaultColorBy);
       fillSelect("line-shape", DATA.ui.lineShapeOptions, "linear");
-      fillSelect("legend-position", DATA.ui.legendPositionOptions, "top");
+      fillSelect("legend-position", DATA.ui.legendPositionOptions, DATA.ui.defaultLegendPosition);
       byId("percentiles").value = DATA.ui.defaultPercentiles;
       byId("percentile-legend-entries").value = DATA.ui.defaultPercentileLegendEntries;
+      byId("title-text").value = DATA.ui.defaultTitle;
       byId("publication-options").innerHTML = [
-        `<label><input type="checkbox" id="show-title">Show title</label>`,
-        `<label><input type="checkbox" id="cycle-line-dash" checked>Cycle line styles</label>`,
+        `<label><input type="checkbox" id="show-title" ${DATA.ui.defaultPublicationOptions.includes("show_title") ? "checked" : ""}>Show title</label>`,
+        `<label><input type="checkbox" id="cycle-line-dash" ${DATA.ui.defaultPublicationOptions.includes("cycle_line_dash") ? "checked" : ""}>Cycle line styles</label>`,
       ].join("");
     }
 
@@ -360,7 +380,7 @@ def _index_html() -> str:
       const showTitle = byId("show-title")?.checked || false;
       const titleText = text("title-text").trim();
       const layout = {
-        title: showTitle ? (titleText || (mode === "percentiles" ? "ADAC/Infogram Charging Curve Percentiles" : "ADAC/Infogram Charging Curves")) : null,
+        title: plotTitle(showTitle, titleText || (mode === "percentiles" ? "ADAC/Infogram Charging Curve Percentiles" : "ADAC/Infogram Charging Curves")),
         xaxis: axisLayout("x-axis", num("axis-title-font-size", 12), num("tick-font-size", 11), 6),
         yaxis: axisLayout("y-axis", num("axis-title-font-size", 12), num("tick-font-size", 11), 5),
         width: num("plot-width", 336),
@@ -371,7 +391,7 @@ def _index_html() -> str:
         plot_bgcolor: "white",
         hovermode: "closest",
         showlegend: traces.some((trace) => trace.showlegend),
-        legend: legendLayout(byId("legend-position").value, num("legend-font-size", 11)),
+        legend: legendLayout(byId("legend-position").value, num("legend-font-size", 11), mode === "percentiles" ? "reversed" : "normal"),
         margin: layoutMargins(byId("legend-position").value, showTitle),
       };
       Plotly.react("curve-plot", traces, layout, {
@@ -547,7 +567,10 @@ def _index_html() -> str:
         const pairs = specs
           .map((spec) => [spec.value, lookup.get(spec.label).get(roundKey(xValue))])
           .filter((pair) => pair[1] !== undefined);
-        if (!pairs.length || yValue > Math.max(...pairs.map((pair) => pair[1]))) return null;
+        if (!pairs.length) return null;
+        const topY = Math.max(...pairs.map((pair) => pair[1]));
+        const worstY = Math.min(...pairs.map((pair) => pair[1]));
+        if (yValue > topY || yValue < worstY) return null;
         return inversePercentileForY(pairs, yValue);
       }));
       return {x, y, z};
@@ -688,11 +711,17 @@ def _index_html() -> str:
       };
     }
 
-    function legendLayout(position, fontSize) {
-      const base = {font: {size: fontSize}, bgcolor: "rgba(255,255,255,0)", borderwidth: 0};
+    function plotTitle(showTitle, title) {
+      if (!showTitle) return null;
+      return {text: `<b>${escapeHtml(title)}</b>`, x: 0.5, xanchor: "center"};
+    }
+
+    function legendLayout(position, fontSize, traceorder = "normal") {
+      const base = {font: {size: fontSize}, bgcolor: "rgba(255,255,255,0)", borderwidth: 0, traceorder};
       if (position === "bottom") return {...base, orientation: "h", yanchor: "top", y: -0.28, xanchor: "left", x: 0};
       if (position === "right") return {...base, orientation: "v", yanchor: "top", y: 1, xanchor: "left", x: 1.02};
       if (position === "inside_top_right") return {...base, orientation: "v", yanchor: "top", y: 0.98, xanchor: "right", x: 0.98, bgcolor: "rgba(255,255,255,0.75)"};
+      if (position === "inside_bottom_left") return {...base, orientation: "v", yanchor: "bottom", y: 0.02, xanchor: "left", x: 0.02, bgcolor: "rgba(255,255,255,0.75)"};
       if (position === "inside_bottom_right") return {...base, orientation: "v", yanchor: "bottom", y: 0.02, xanchor: "right", x: 0.98, bgcolor: "rgba(255,255,255,0.75)"};
       return {...base, orientation: "h", yanchor: "bottom", y: 1.08, xanchor: "left", x: 0};
     }

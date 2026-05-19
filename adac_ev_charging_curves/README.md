@@ -2,7 +2,10 @@
 
 http://127.0.0.1:8050
 
+Quelle:
 
+- Hauptartikel: https://www.adac.de/rund-ums-fahrzeug/elektromobilitaet/laden/schnellladen-langstrecke-ladekurven-2026/
+- Direktes Infogram-Embed: https://www.adac.de/infogram/a194a8ff-52a8-41cb-bd33-e553c66f04f8/?parent_url=https%3A%2F%2Fwww.adac.de%2Frund-ums-fahrzeug%2Felektromobilitaet%2Fladen%2Fschnellladen-langstrecke-ladekurven-2026%2F&src=embed#async_embed
 
 Dieses Projekt extrahiert die Fahrzeugtabelle und die gerenderten SVG-Ladekurven aus dem ADAC/Infogram-Embed:
 
@@ -129,14 +132,14 @@ Die Oberfläche enthält:
 - editable percentile list; default is `Worst`, every 5% step from `5% Percentile` to `95% Percentile`, and `Top`
 - separate control for which percentile lines receive legend entries, e.g. only `Worst, 25, 50, 75, Top`
 - percentile labels use publication-friendly names such as `30% Percentile`
-- percentile display as individual lines or as an interpolated false-color field under the top percentile curve
+- percentile display as individual lines or as an interpolated false-color field between the `Worst` and `Top` percentile curves
 - percentile legend can be shown as selected legend entries, as a continuous colorbar, or hidden
-- configurable legend position and figure title
+- configurable legend position, including inside-bottom-left placement, and centered bold figure title
 - percentile curves are computed over the selected vehicles on shared x-axis support points with linear interpolation
 - configurable x and y axes, including SOC, absolute charging power in kW, and relative charging power as percent of each vehicle's maximum; axis units are written in square brackets
 - line colors by vehicle, manufacturer, or continuous quantities such as observed maximum power and range values
 - one legend entry per manufacturer when `Brand / manufacturer (discrete)` is selected
-- SAE-style publication defaults: Times New Roman, 336 x 250 px, small labels, white background, subtle grid, black axis lines, no internal figure title
+- publication-oriented defaults: percentile mode, relative charging power, colorbar legend, Times New Roman, 500 x 400 px, 16 px labels, white background, subtle grid, black axis lines, and centered bold title
 - display options for font family, line shape, percentile dash style, line width, marker size, opacity, figure width/height, font sizes, and cyclic line styles
 - for continuous color scales, individual line legend entries are hidden; only the colorbar remains visible
 - SVG export through the `Export SVG` button

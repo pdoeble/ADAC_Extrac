@@ -37,3 +37,9 @@ def test_build_static_site(tmp_path) -> None:
     payload = json.loads((site_dir / "assets" / "data.json").read_text(encoding="utf-8"))
     assert payload["vehicleIds"] == ["car_a"]
     assert payload["ui"]["defaultPercentiles"].startswith("Worst")
+    assert payload["ui"]["defaultPlotMode"] == "percentiles"
+    assert payload["ui"]["defaultYAxis"] == "charging_power_relative_percent"
+    assert payload["ui"]["defaultPercentileLegendMode"] == "colorbar"
+    assert payload["ui"]["defaultPercentileDash"] == "solid"
+    assert payload["ui"]["defaultTitle"] == "100 EV Models / Charging Power"
+    assert {"label": "Inside bottom left", "value": "inside_bottom_left"} in payload["ui"]["legendPositionOptions"]
