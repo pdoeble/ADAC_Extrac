@@ -8,3 +8,4 @@ venv/
 .DS_Store
 Thumbs.db
 *.log
+adac_ev_charging_curves/site/

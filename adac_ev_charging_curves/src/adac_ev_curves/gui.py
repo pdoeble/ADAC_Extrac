@@ -58,6 +58,7 @@ LEGEND_POSITION_OPTIONS = [
     {"label": "Bottom", "value": "bottom"},
     {"label": "Right", "value": "right"},
     {"label": "Inside top right", "value": "inside_top_right"},
+    {"label": "Inside bottom left", "value": "inside_bottom_left"},
     {"label": "Inside bottom right", "value": "inside_bottom_right"},
 ]
 
@@ -400,11 +401,12 @@ def _percentile_dash(index: int, dash_mode: str | None, style: PlotStyle) -> str
     return DASH_PATTERNS[index % len(DASH_PATTERNS)] if style.cycle_line_dash else "solid"
 
 
-def _legend_layout(style: PlotStyle) -> dict[str, Any]:
+def _legend_layout(style: PlotStyle, traceorder: str = "normal") -> dict[str, Any]:
     base = {
         "font": {"size": style.legend_font_size},
         "bgcolor": "rgba(255,255,255,0)",
         "borderwidth": 0,
+        "traceorder": traceorder,
     }
     if style.legend_position == "bottom":
         return {
@@ -432,6 +434,16 @@ def _legend_layout(style: PlotStyle) -> dict[str, Any]:
             "y": 0.98,
             "xanchor": "right",
             "x": 0.98,
+            "bgcolor": "rgba(255,255,255,0.75)",
+        }
+    if style.legend_position == "inside_bottom_left":
+        return {
+            **base,
+            "orientation": "v",
+            "yanchor": "bottom",
+            "y": 0.02,
+            "xanchor": "left",
+            "x": 0.02,
             "bgcolor": "rgba(255,255,255,0.75)",
         }
     if style.legend_position == "inside_bottom_right":
@@ -463,10 +475,15 @@ def _layout_margins(style: PlotStyle) -> dict[str, int]:
     }
 
 
-def _layout_title(style: PlotStyle, default_title: str) -> str | None:
+def _layout_title(style: PlotStyle, default_title: str) -> dict[str, Any] | None:
     if not style.show_title:
         return None
-    return style.title_text or default_title
+    title = style.title_text or default_title
+    return {
+        "text": f"<b>{title}</b>",
+        "x": 0.5,
+        "xanchor": "center",
+    }
 
 
 def _percentile(values: list[float], percentile: float) -> float | None:

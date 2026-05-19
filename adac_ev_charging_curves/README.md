@@ -142,6 +142,50 @@ Die Oberfläche enthält:
 - SVG export through the `Export SVG` button
 - additional SVG export through the Plotly modebar
 
+## Statische GitHub-Pages-Seite
+
+Die Dash-GUI benötigt einen laufenden Python-Server und kann deshalb nicht direkt auf GitHub Pages betrieben werden. Für GitHub Pages gibt es zusätzlich einen statischen Build, der dieselben extrahierten CSV-Daten in eine eigenständige Plotly/JavaScript-Seite schreibt:
+
+```bash
+python -m adac_ev_curves.cli site --data output --out site
+```
+
+Der Build erzeugt:
+
+- `site/index.html`
+- `site/assets/data.json`
+- `site/.nojekyll`
+
+Die Datei `site/index.html` kann lokal über einen einfachen statischen Server getestet werden:
+
+```bash
+python -m http.server 8080 --directory site
+```
+
+Danach im Browser öffnen:
+
+```text
+http://127.0.0.1:8080
+```
+
+Für GitHub Pages ist ein Workflow unter `.github/workflows/pages.yml` enthalten. Beim Push auf `main` installiert der Workflow das Paket, baut die statische Seite aus `adac_ev_charging_curves/output` und deployed das Ergebnis als GitHub-Pages-Artefakt.
+
+Einmalige GitHub-Einstellung:
+
+1. Repository auf GitHub öffnen.
+2. `Settings` -> `Pages` öffnen.
+3. Unter `Build and deployment` bei `Source` den Eintrag `GitHub Actions` auswählen.
+4. Änderungen auf `main` pushen.
+5. Im Tab `Actions` den Workflow `Deploy GitHub Pages` prüfen.
+
+Die spätere URL hat typischerweise dieses Schema:
+
+```text
+https://<github-user-or-org>.github.io/<repository-name>/
+```
+
+Falls eine Custom Domain genutzt wird, muss sie zusätzlich in den GitHub-Pages-Einstellungen konfiguriert werden.
+
 ## Methodische Hinweise
 
 Die extrahierten Werte sind gerenderte/aufbereitete Website-Daten. Für wissenschaftliche Nutzung sollten Quelle, URL, Extraktionszeitpunkt, Parser-Version und der Hinweis dokumentiert werden, dass die SVG-Pfade nur Audit-Daten sind.

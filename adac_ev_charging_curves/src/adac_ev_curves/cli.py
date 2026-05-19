@@ -27,6 +27,10 @@ def build_parser() -> argparse.ArgumentParser:
     gui.add_argument("--host", default="127.0.0.1", help="Dash host.")
     gui.add_argument("--port", type=int, default=8050, help="Dash port.")
     gui.add_argument("--debug", action="store_true", help="Enable Dash debug mode.")
+
+    site = subparsers.add_parser("site", help="Build the static GitHub Pages site.")
+    site.add_argument("--data", default="output", help="Directory with extracted CSV files.")
+    site.add_argument("--out", default="site", help="Output directory for the static site.")
     return parser
 
 
@@ -55,6 +59,13 @@ def main(argv: list[str] | None = None) -> int:
         app = create_app(args.data)
         print(json.dumps({"url": f"http://{args.host}:{args.port}", "data": str(Path(args.data).resolve())}, indent=2))
         app.run(host=args.host, port=args.port, debug=args.debug)
+        return 0
+
+    if args.command == "site":
+        from .static_site import build_static_site
+
+        summary = build_static_site(args.data, args.out)
+        print(json.dumps(summary, ensure_ascii=False, indent=2))
         return 0
 
     parser.error(f"Unknown command: {args.command}")
