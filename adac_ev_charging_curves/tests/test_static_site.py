@@ -32,8 +32,14 @@ def test_build_static_site(tmp_path) -> None:
     summary = build_static_site(data_dir, site_dir)
 
     assert summary["vehicles"] == 1
+    index_html = (site_dir / "index.html").read_text(encoding="utf-8")
     assert (site_dir / "index.html").exists()
     assert (site_dir / ".nojekyll").exists()
+    assert "Analysis" in index_html
+    assert "Figure &amp; Export" in index_html or "Figure & Export" in index_html
+    assert "ADAC article: charging curves for long-distance fast charging" in index_html
+    assert "<strong>300 kW</strong>" in index_html
+    assert "<strong>Alpitronic</strong>" in index_html
     payload = json.loads((site_dir / "assets" / "data.json").read_text(encoding="utf-8"))
     assert payload["vehicleIds"] == ["car_a"]
     assert payload["ui"]["defaultPercentiles"].startswith("Worst")
@@ -42,4 +48,6 @@ def test_build_static_site(tmp_path) -> None:
     assert payload["ui"]["defaultPercentileLegendMode"] == "colorbar"
     assert payload["ui"]["defaultPercentileDash"] == "solid"
     assert payload["ui"]["defaultTitle"] == "100 EV Models / Charging Power"
+    assert payload["ui"]["mainArticleUrl"].startswith("https://www.adac.de/")
+    assert "300 kW" not in payload["ui"]["methodologyExcerptPrefix"]
     assert {"label": "Inside bottom left", "value": "inside_bottom_left"} in payload["ui"]["legendPositionOptions"]

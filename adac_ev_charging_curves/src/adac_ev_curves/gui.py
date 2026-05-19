@@ -25,6 +25,17 @@ AXIS_OPTIONS = [
 
 AXIS_LABELS = {item["value"]: item["label"] for item in AXIS_OPTIONS}
 
+MAIN_ARTICLE_URL = "https://www.adac.de/rund-ums-fahrzeug/elektromobilitaet/laden/schnellladen-langstrecke-ladekurven-2026/"
+METHODOLOGY_EXCERPT_PREFIX = "Geladen wird im Test an einer"
+METHODOLOGY_EXCERPT_SUFFIX = "starken Schnellladesäule von"
+METHODOLOGY_SUMMARY = (
+    "ADAC records charging curves to make DC charging-power fluctuations transparent. "
+    "Vehicles are preconditioned overnight in a 20 °C test hall; the range basis is the mixed "
+    "ADAC Ecotest cycle with urban, rural, and motorway shares. Where supported, route-planning "
+    "battery preconditioning is triggered before charging. Charging power can still vary with cell "
+    "state, charging management, and ambient temperature."
+)
+
 PLOT_MODE_OPTIONS = [
     {"label": "Vehicles", "value": "vehicles"},
     {"label": "Percentiles", "value": "percentiles"},
@@ -1095,6 +1106,59 @@ def create_app(data_dir: str | Path = "output"):
         },
     }
 
+    def control_label(title: str, component: Any, wide: bool = False):
+        class_name = "control-field wide" if wide else "control-field"
+        return html.Label([title, component], className=class_name)
+
+    def control_section(title: str, children: list[Any]):
+        return html.Div(
+            [
+                html.H2(title),
+                html.Div(children, className="settings-fields"),
+            ],
+            className="settings-panel",
+        )
+
+    source_link = html.Div(
+        [
+            html.Strong("Source: "),
+            html.A(
+                "ADAC article: charging curves for long-distance fast charging",
+                href=MAIN_ARTICLE_URL,
+                target="_blank",
+                rel="noopener noreferrer",
+            ),
+        ],
+        className="source-link",
+    )
+
+    methodology_box = html.Div(
+        [
+            html.H2("ADAC DC Charging Test Methodology"),
+            html.Blockquote(
+                [
+                    METHODOLOGY_EXCERPT_PREFIX,
+                    " ",
+                    html.Strong("300 kW"),
+                    " ",
+                    METHODOLOGY_EXCERPT_SUFFIX,
+                    " ",
+                    html.Strong("Alpitronic"),
+                    ".",
+                ]
+            ),
+            html.P(METHODOLOGY_SUMMARY),
+            html.P(
+                [
+                    "Source: ",
+                    html.A("ADAC article", href=MAIN_ARTICLE_URL, target="_blank", rel="noopener noreferrer"),
+                ],
+                className="methodology-source",
+            ),
+        ],
+        className="methodology-box",
+    )
+
     app.layout = html.Div(
         [
             html.Div(
@@ -1111,6 +1175,7 @@ def create_app(data_dir: str | Path = "output"):
                 ],
                 className="header",
             ),
+            source_link,
             dash_table.DataTable(
                 id="vehicle-table",
                 data=dataset.vehicle_records,
@@ -1143,262 +1208,243 @@ def create_app(data_dir: str | Path = "output"):
             ),
             html.Div(
                 [
-                    html.Label(
+                    control_section(
+                        "Analysis",
                         [
-                            "Plot mode",
-                            dcc.RadioItems(
-                                PLOT_MODE_OPTIONS,
-                                DEFAULT_PLOT_MODE,
-                                id="plot-mode",
-                                inline=True,
-                                inputStyle={"marginRight": "4px", "marginLeft": "0"},
-                                labelStyle={"marginRight": "12px", "fontWeight": "400"},
+                            control_label(
+                                "Plot mode",
+                                dcc.RadioItems(
+                                    PLOT_MODE_OPTIONS,
+                                    DEFAULT_PLOT_MODE,
+                                    id="plot-mode",
+                                    inline=True,
+                                    inputStyle={"marginRight": "4px", "marginLeft": "0"},
+                                    labelStyle={"marginRight": "12px", "fontWeight": "400"},
+                                ),
+                                wide=True,
                             ),
-                        ]
+                            control_label("X axis", dcc.Dropdown(AXIS_OPTIONS, DEFAULT_X_AXIS, id="x-axis", clearable=False)),
+                            control_label("Y axis", dcc.Dropdown(AXIS_OPTIONS, DEFAULT_Y_AXIS, id="y-axis", clearable=False)),
+                            control_label("Line color", dcc.Dropdown(COLOR_OPTIONS, DEFAULT_COLOR_BY, id="color-by", clearable=False)),
+                        ],
                     ),
-                    html.Label(
+                    control_section(
+                        "Percentiles",
                         [
-                            "Percentiles",
-                            dcc.Input(
-                                id="percentiles",
-                                type="text",
-                                value=DEFAULT_PERCENTILES_TEXT,
-                                placeholder="Worst, 5, 10, ..., 95, Top",
+                            control_label(
+                                "Percentiles",
+                                dcc.Input(
+                                    id="percentiles",
+                                    type="text",
+                                    value=DEFAULT_PERCENTILES_TEXT,
+                                    placeholder="Worst, 5, 10, ..., 95, Top",
+                                ),
+                                wide=True,
                             ),
-                        ]
+                            control_label(
+                                "Legend entries",
+                                dcc.Input(
+                                    id="percentile-legend-entries",
+                                    type="text",
+                                    value=DEFAULT_PERCENTILE_LEGEND_TEXT,
+                                    placeholder="Worst, 25, 50, 75, Top; all; none",
+                                ),
+                                wide=True,
+                            ),
+                            control_label(
+                                "Display",
+                                dcc.Dropdown(
+                                    PERCENTILE_DISPLAY_OPTIONS,
+                                    DEFAULT_PERCENTILE_DISPLAY,
+                                    id="percentile-display",
+                                    clearable=False,
+                                ),
+                            ),
+                            control_label(
+                                "Legend",
+                                dcc.Dropdown(
+                                    PERCENTILE_LEGEND_MODE_OPTIONS,
+                                    DEFAULT_PERCENTILE_LEGEND_MODE,
+                                    id="percentile-legend-mode",
+                                    clearable=False,
+                                ),
+                            ),
+                        ],
                     ),
-                    html.Label(
+                    control_section(
+                        "Lines & Legend",
                         [
-                            "Percentile legend entries",
-                            dcc.Input(
-                                id="percentile-legend-entries",
-                                type="text",
-                                value=DEFAULT_PERCENTILE_LEGEND_TEXT,
-                                placeholder="Worst, 25, 50, 75, Top; all; none",
+                            control_label("Line shape", dcc.Dropdown(LINE_SHAPE_OPTIONS, default_style.line_shape, id="line-shape", clearable=False)),
+                            control_label(
+                                "Percentile dash",
+                                dcc.Dropdown(
+                                    PERCENTILE_DASH_OPTIONS,
+                                    DEFAULT_PERCENTILE_DASH,
+                                    id="percentile-dash",
+                                    clearable=False,
+                                ),
                             ),
-                        ]
+                            control_label(
+                                "Legend position",
+                                dcc.Dropdown(
+                                    LEGEND_POSITION_OPTIONS,
+                                    default_style.legend_position,
+                                    id="legend-position",
+                                    clearable=False,
+                                ),
+                            ),
+                            control_label(
+                                "Line width",
+                                dcc.Input(
+                                    id="line-width",
+                                    type="number",
+                                    min=0.2,
+                                    max=12,
+                                    step=0.2,
+                                    value=default_style.line_width,
+                                ),
+                            ),
+                            control_label(
+                                "Marker size",
+                                dcc.Input(
+                                    id="marker-size",
+                                    type="number",
+                                    min=0,
+                                    max=20,
+                                    step=0.5,
+                                    value=default_style.marker_size,
+                                ),
+                            ),
+                            control_label(
+                                "Opacity",
+                                dcc.Input(
+                                    id="line-opacity",
+                                    type="number",
+                                    min=0.05,
+                                    max=1,
+                                    step=0.05,
+                                    value=default_style.opacity,
+                                ),
+                            ),
+                        ],
                     ),
-                    html.Label(
+                    control_section(
+                        "Figure & Export",
                         [
-                            "Percentile display",
-                            dcc.Dropdown(
-                                PERCENTILE_DISPLAY_OPTIONS,
-                                DEFAULT_PERCENTILE_DISPLAY,
-                                id="percentile-display",
-                                clearable=False,
+                            control_label(
+                                "Figure title",
+                                dcc.Input(
+                                    id="title-text",
+                                    type="text",
+                                    value=default_style.title_text or DEFAULT_TITLE_TEXT,
+                                ),
+                                wide=True,
                             ),
-                        ]
-                    ),
-                    html.Label(
-                        [
-                            "Percentile legend",
-                            dcc.Dropdown(
-                                PERCENTILE_LEGEND_MODE_OPTIONS,
-                                DEFAULT_PERCENTILE_LEGEND_MODE,
-                                id="percentile-legend-mode",
-                                clearable=False,
+                            control_label(
+                                "Font family",
+                                dcc.Input(
+                                    id="font-family",
+                                    type="text",
+                                    value=default_style.font_family,
+                                ),
+                                wide=True,
                             ),
-                        ]
-                    ),
-                    html.Label(
-                        [
-                            "Percentile line dash",
-                            dcc.Dropdown(
-                                PERCENTILE_DASH_OPTIONS,
-                                DEFAULT_PERCENTILE_DASH,
-                                id="percentile-dash",
-                                clearable=False,
+                            control_label(
+                                "Figure width / px",
+                                dcc.Input(
+                                    id="plot-width",
+                                    type="number",
+                                    min=250,
+                                    max=4000,
+                                    step=1,
+                                    value=default_style.plot_width,
+                                ),
                             ),
-                        ]
-                    ),
-                    html.Label(["X axis", dcc.Dropdown(AXIS_OPTIONS, DEFAULT_X_AXIS, id="x-axis", clearable=False)]),
-                    html.Label(
-                        ["Y axis", dcc.Dropdown(AXIS_OPTIONS, DEFAULT_Y_AXIS, id="y-axis", clearable=False)]
-                    ),
-                    html.Label(
-                        ["Line color", dcc.Dropdown(COLOR_OPTIONS, DEFAULT_COLOR_BY, id="color-by", clearable=False)]
-                    ),
-                    html.Label(
-                        ["Line shape", dcc.Dropdown(LINE_SHAPE_OPTIONS, default_style.line_shape, id="line-shape", clearable=False)]
-                    ),
-                    html.Label(
-                        [
-                            "Legend position",
-                            dcc.Dropdown(
-                                LEGEND_POSITION_OPTIONS,
-                                default_style.legend_position,
-                                id="legend-position",
-                                clearable=False,
+                            control_label(
+                                "Figure height / px",
+                                dcc.Input(
+                                    id="plot-height",
+                                    type="number",
+                                    min=180,
+                                    max=3000,
+                                    step=1,
+                                    value=default_style.plot_height,
+                                ),
                             ),
-                        ]
-                    ),
-                    html.Label(
-                        [
-                            "Figure title",
-                            dcc.Input(
-                                id="title-text",
-                                type="text",
-                                value=default_style.title_text or DEFAULT_TITLE_TEXT,
+                            control_label(
+                                "Base font size",
+                                dcc.Input(
+                                    id="font-size",
+                                    type="number",
+                                    min=8,
+                                    max=40,
+                                    step=1,
+                                    value=default_style.font_size,
+                                ),
                             ),
-                        ]
-                    ),
-                    html.Label(
-                        [
-                            "Font family",
-                            dcc.Input(
-                                id="font-family",
-                                type="text",
-                                value=default_style.font_family,
+                            control_label(
+                                "Title font size",
+                                dcc.Input(
+                                    id="title-font-size",
+                                    type="number",
+                                    min=10,
+                                    max=60,
+                                    step=1,
+                                    value=default_style.title_font_size,
+                                ),
                             ),
-                        ]
-                    ),
-                    html.Label(
-                        [
-                            "Line width",
-                            dcc.Input(
-                                id="line-width",
-                                type="number",
-                                min=0.2,
-                                max=12,
-                                step=0.2,
-                                value=default_style.line_width,
+                            control_label(
+                                "Axis title font size",
+                                dcc.Input(
+                                    id="axis-title-font-size",
+                                    type="number",
+                                    min=8,
+                                    max=44,
+                                    step=1,
+                                    value=default_style.axis_title_font_size,
+                                ),
                             ),
-                        ]
-                    ),
-                    html.Label(
-                        [
-                            "Marker size",
-                            dcc.Input(
-                                id="marker-size",
-                                type="number",
-                                min=0,
-                                max=20,
-                                step=0.5,
-                                value=default_style.marker_size,
+                            control_label(
+                                "Tick font size",
+                                dcc.Input(
+                                    id="tick-font-size",
+                                    type="number",
+                                    min=6,
+                                    max=36,
+                                    step=1,
+                                    value=default_style.tick_font_size,
+                                ),
                             ),
-                        ]
-                    ),
-                    html.Label(
-                        [
-                            "Opacity",
-                            dcc.Input(
-                                id="line-opacity",
-                                type="number",
-                                min=0.05,
-                                max=1,
-                                step=0.05,
-                                value=default_style.opacity,
+                            control_label(
+                                "Legend font size",
+                                dcc.Input(
+                                    id="legend-font-size",
+                                    type="number",
+                                    min=6,
+                                    max=36,
+                                    step=1,
+                                    value=default_style.legend_font_size,
+                                ),
                             ),
-                        ]
-                    ),
-                    html.Label(
-                        [
-                            "Figure width / px",
-                            dcc.Input(
-                                id="plot-width",
-                                type="number",
-                                min=250,
-                                max=4000,
-                                step=1,
-                                value=default_style.plot_width,
+                            control_label(
+                                "SAE options",
+                                dcc.Checklist(
+                                    id="publication-options",
+                                    options=[
+                                        {"label": "Show title", "value": "show_title"},
+                                        {"label": "Cycle line styles", "value": "cycle_line_dash"},
+                                    ],
+                                    value=DEFAULT_PUBLICATION_OPTIONS,
+                                    inputStyle={"marginRight": "4px"},
+                                    labelStyle={"display": "block", "fontWeight": "400"},
+                                ),
                             ),
-                        ]
-                    ),
-                    html.Label(
-                        [
-                            "Figure height / px",
-                            dcc.Input(
-                                id="plot-height",
-                                type="number",
-                                min=180,
-                                max=3000,
-                                step=1,
-                                value=default_style.plot_height,
+                            html.Div(
+                                [html.Button("Export SVG", id="export-svg", n_clicks=0), html.Div(id="export-status")],
+                                className="export-row wide",
                             ),
-                        ]
+                        ],
                     ),
-                    html.Label(
-                        [
-                            "Base font size",
-                            dcc.Input(
-                                id="font-size",
-                                type="number",
-                                min=8,
-                                max=40,
-                                step=1,
-                                value=default_style.font_size,
-                            ),
-                        ]
-                    ),
-                    html.Label(
-                        [
-                            "Title font size",
-                            dcc.Input(
-                                id="title-font-size",
-                                type="number",
-                                min=10,
-                                max=60,
-                                step=1,
-                                value=default_style.title_font_size,
-                            ),
-                        ]
-                    ),
-                    html.Label(
-                        [
-                            "Axis title font size",
-                            dcc.Input(
-                                id="axis-title-font-size",
-                                type="number",
-                                min=8,
-                                max=44,
-                                step=1,
-                                value=default_style.axis_title_font_size,
-                            ),
-                        ]
-                    ),
-                    html.Label(
-                        [
-                            "Tick font size",
-                            dcc.Input(
-                                id="tick-font-size",
-                                type="number",
-                                min=6,
-                                max=36,
-                                step=1,
-                                value=default_style.tick_font_size,
-                            ),
-                        ]
-                    ),
-                    html.Label(
-                        [
-                            "Legend font size",
-                            dcc.Input(
-                                id="legend-font-size",
-                                type="number",
-                                min=6,
-                                max=36,
-                                step=1,
-                                value=default_style.legend_font_size,
-                            ),
-                        ]
-                    ),
-                    html.Label(
-                        [
-                            "SAE options",
-                            dcc.Checklist(
-                                id="publication-options",
-                                options=[
-                                    {"label": "Show title", "value": "show_title"},
-                                    {"label": "Cycle line styles", "value": "cycle_line_dash"},
-                                ],
-                                value=DEFAULT_PUBLICATION_OPTIONS,
-                                inputStyle={"marginRight": "4px"},
-                                labelStyle={"display": "block", "fontWeight": "400"},
-                            ),
-                        ]
-                    ),
-                    html.Button("Export SVG", id="export-svg", n_clicks=0),
-                    html.Div(id="export-status"),
                 ],
                 className="controls",
             ),
@@ -1423,6 +1469,7 @@ def create_app(data_dir: str | Path = "output"):
                 ),
                 className="graph-wrap",
             ),
+            methodology_box,
         ],
         className="page",
     )
@@ -1440,14 +1487,26 @@ def create_app(data_dir: str | Path = "output"):
       .page { max-width: 1500px; margin: 0 auto; padding: 22px 28px 32px; }
       .header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
       h1 { margin: 0; font-size: 24px; line-height: 1.2; }
-      .toolbar, .controls { display: flex; align-items: end; gap: 10px; flex-wrap: wrap; }
+      .toolbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+      .source-link { margin: 0 0 12px; font-size: 13px; color: #374151; }
+      .source-link a, .methodology-box a { color: #1d4ed8; text-decoration: none; }
+      .source-link a:hover, .methodology-box a:hover { text-decoration: underline; }
       button { border: 1px solid #9ca3af; background: #ffffff; color: #111827; border-radius: 6px; padding: 8px 11px; cursor: pointer; }
       button:hover { background: #f3f4f6; }
-      .controls { margin: 16px 0 8px; }
-      .controls label { min-width: 170px; font-size: 13px; font-weight: 700; color: #374151; }
-      .controls label:first-child, .controls label:nth-child(2), .controls label:nth-child(3), .controls label:nth-child(4), .controls label:nth-child(5), .controls label:nth-child(6), .controls label:nth-child(7), .controls label:nth-child(8), .controls label:nth-child(9), .controls label:nth-child(10), .controls label:nth-child(11) { min-width: 250px; }
+      .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 12px; align-items: start; margin: 16px 0 8px; }
+      .settings-panel { border: 1px solid #e5e7eb; border-radius: 6px; padding: 12px; background: #ffffff; }
+      .settings-panel h2 { margin: 0 0 10px; font-size: 13px; line-height: 1.2; color: #111827; }
+      .settings-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(138px, 1fr)); gap: 10px; align-items: end; }
+      .control-field, .export-row { min-width: 0; font-size: 13px; font-weight: 700; color: #374151; }
+      .control-field.wide, .export-row.wide { grid-column: 1 / -1; }
       .controls input { width: 100%; box-sizing: border-box; border: 1px solid #d1d5db; border-radius: 4px; padding: 8px; }
+      .export-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
       .graph-wrap { overflow-x: auto; }
+      .methodology-box { margin-top: 14px; border: 1px solid #cbd5e1; border-left: 4px solid #64748b; border-radius: 6px; background: #f8fafc; padding: 12px 14px; max-width: 920px; }
+      .methodology-box h2 { margin: 0 0 8px; font-size: 15px; line-height: 1.25; }
+      .methodology-box blockquote { margin: 0 0 8px; padding: 0 0 0 12px; border-left: 3px solid #94a3b8; color: #111827; font-size: 13px; }
+      .methodology-box p { margin: 0 0 8px; font-size: 13px; line-height: 1.45; color: #374151; }
+      .methodology-box .methodology-source { margin-bottom: 0; font-size: 12px; color: #4b5563; }
       #selection-summary, #export-status { font-size: 13px; color: #4b5563; min-height: 20px; }
       .dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner th,
       .dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner td {

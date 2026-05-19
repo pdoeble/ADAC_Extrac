@@ -26,6 +26,10 @@ from .gui import (
     DEFAULT_TITLE_TEXT,
     DEFAULT_X_AXIS,
     DEFAULT_Y_AXIS,
+    MAIN_ARTICLE_URL,
+    METHODOLOGY_EXCERPT_PREFIX,
+    METHODOLOGY_EXCERPT_SUFFIX,
+    METHODOLOGY_SUMMARY,
     load_dataset,
 )
 
@@ -111,6 +115,10 @@ def build_static_site(data_dir: str | Path = "output", out_dir: str | Path = "si
             "defaultLegendPosition": "inside_top_right",
             "defaultTitle": DEFAULT_TITLE_TEXT,
             "defaultPublicationOptions": DEFAULT_PUBLICATION_OPTIONS,
+            "mainArticleUrl": MAIN_ARTICLE_URL,
+            "methodologyExcerptPrefix": METHODOLOGY_EXCERPT_PREFIX,
+            "methodologyExcerptSuffix": METHODOLOGY_EXCERPT_SUFFIX,
+            "methodologySummary": METHODOLOGY_SUMMARY,
         },
     }
 
@@ -146,7 +154,10 @@ def _index_html() -> str:
     .page { max-width: 1500px; margin: 0 auto; padding: 22px 28px 34px; }
     .header { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 12px; }
     h1 { margin: 0; font-size: 24px; line-height: 1.2; }
-    .toolbar, .controls { display: flex; align-items: end; gap: 10px; flex-wrap: wrap; }
+    .toolbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .source-link { margin: 0 0 12px; font-size: 13px; color: #374151; }
+    .source-link a, .methodology-box a { color: #1d4ed8; text-decoration: none; }
+    .source-link a:hover, .methodology-box a:hover { text-decoration: underline; }
     button { border: 1px solid #9ca3af; background: #fff; color: var(--text); border-radius: 6px; padding: 8px 11px; cursor: pointer; }
     button:hover { background: var(--soft); }
     .summary, #export-status { min-height: 20px; color: var(--muted); font-size: 13px; }
@@ -156,15 +167,24 @@ def _index_html() -> str:
     th { position: sticky; top: 0; background: var(--soft); z-index: 1; font-weight: 700; }
     tbody tr:nth-child(odd) { background: var(--stripe); }
     td.vehicle { min-width: 310px; }
-    .controls { margin: 16px 0 8px; }
-    .controls label { min-width: 170px; font-size: 13px; font-weight: 700; color: #374151; }
-    .controls label.wide { min-width: 250px; }
+    .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 12px; align-items: start; margin: 16px 0 8px; }
+    .settings-panel { border: 1px solid #e5e7eb; border-radius: 6px; padding: 12px; background: #fff; }
+    .settings-panel h2 { margin: 0 0 10px; font-size: 13px; line-height: 1.2; color: var(--text); }
+    .settings-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(138px, 1fr)); gap: 10px; align-items: end; }
+    .controls label, .export-row { min-width: 0; font-size: 13px; font-weight: 700; color: #374151; }
+    .controls label.wide, .export-row.wide { grid-column: 1 / -1; }
     .controls input, .controls select, .search input {
       width: 100%; border: 1px solid var(--border); border-radius: 4px; padding: 8px; background: #fff;
     }
+    .export-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
     .radio-row, .check-row { display: flex; flex-wrap: wrap; gap: 12px; min-height: 35px; align-items: center; font-weight: 400; }
     .radio-row label, .check-row label { min-width: 0; font-weight: 400; display: flex; gap: 4px; align-items: center; }
     .graph-wrap { overflow-x: auto; border-top: 1px solid #e5e7eb; padding-top: 10px; }
+    .methodology-box { margin-top: 14px; border: 1px solid #cbd5e1; border-left: 4px solid #64748b; border-radius: 6px; background: #f8fafc; padding: 12px 14px; max-width: 920px; }
+    .methodology-box h2 { margin: 0 0 8px; font-size: 15px; line-height: 1.25; }
+    .methodology-box blockquote { margin: 0 0 8px; padding: 0 0 0 12px; border-left: 3px solid #94a3b8; color: var(--text); font-size: 13px; }
+    .methodology-box p { margin: 0 0 8px; font-size: 13px; line-height: 1.45; color: #374151; }
+    .methodology-box .methodology-source { margin-bottom: 0; font-size: 12px; color: var(--muted); }
     .small { font-size: 12px; color: var(--muted); }
     .hidden { display: none; }
   </style>
@@ -180,6 +200,11 @@ def _index_html() -> str:
       </div>
     </section>
 
+    <section class="source-link">
+      <strong>Source:</strong>
+      <a href="https://www.adac.de/rund-ums-fahrzeug/elektromobilitaet/laden/schnellladen-langstrecke-ladekurven-2026/" target="_blank" rel="noopener noreferrer">ADAC article: charging curves for long-distance fast charging</a>
+    </section>
+
     <section class="search">
       <input id="vehicle-filter" type="search" placeholder="Filter vehicles, manufacturers, or table values">
     </section>
@@ -191,36 +216,64 @@ def _index_html() -> str:
     </section>
 
     <section class="controls">
-      <label class="wide">Plot mode<div id="plot-mode" class="radio-row"></div></label>
-      <label class="wide">Percentiles<input id="percentiles" type="text"></label>
-      <label class="wide">Percentile legend entries<input id="percentile-legend-entries" type="text"></label>
-      <label class="wide">Percentile display<select id="percentile-display"></select></label>
-      <label class="wide">Percentile legend<select id="percentile-legend-mode"></select></label>
-      <label class="wide">Percentile line dash<select id="percentile-dash"></select></label>
-      <label class="wide">X axis<select id="x-axis"></select></label>
-      <label class="wide">Y axis<select id="y-axis"></select></label>
-      <label class="wide">Line color<select id="color-by"></select></label>
-      <label class="wide">Line shape<select id="line-shape"></select></label>
-      <label class="wide">Legend position<select id="legend-position"></select></label>
-      <label class="wide">Figure title<input id="title-text" type="text" value="100 EV Models / Charging Power"></label>
-      <label>Font family<input id="font-family" type="text" value="Times New Roman"></label>
-      <label>Line width<input id="line-width" type="number" min="0.2" max="12" step="0.2" value="1.4"></label>
-      <label>Marker size<input id="marker-size" type="number" min="0" max="20" step="0.5" value="0"></label>
-      <label>Opacity<input id="line-opacity" type="number" min="0.05" max="1" step="0.05" value="1"></label>
-      <label>Figure width [px]<input id="plot-width" type="number" min="250" max="4000" step="1" value="500"></label>
-      <label>Figure height [px]<input id="plot-height" type="number" min="180" max="3000" step="1" value="400"></label>
-      <label>Base font size<input id="font-size" type="number" min="8" max="40" step="1" value="16"></label>
-      <label>Title font size<input id="title-font-size" type="number" min="10" max="60" step="1" value="16"></label>
-      <label>Axis title font size<input id="axis-title-font-size" type="number" min="8" max="44" step="1" value="16"></label>
-      <label>Tick font size<input id="tick-font-size" type="number" min="6" max="36" step="1" value="16"></label>
-      <label>Legend font size<input id="legend-font-size" type="number" min="6" max="36" step="1" value="16"></label>
-      <label class="wide">SAE options<div id="publication-options" class="check-row"></div></label>
-      <button id="export-svg">Export SVG</button>
-      <div id="export-status"></div>
+      <section class="settings-panel">
+        <h2>Analysis</h2>
+        <div class="settings-fields">
+          <label class="wide">Plot mode<div id="plot-mode" class="radio-row"></div></label>
+          <label>X axis<select id="x-axis"></select></label>
+          <label>Y axis<select id="y-axis"></select></label>
+          <label>Line color<select id="color-by"></select></label>
+        </div>
+      </section>
+      <section class="settings-panel">
+        <h2>Percentiles</h2>
+        <div class="settings-fields">
+          <label class="wide">Percentiles<input id="percentiles" type="text"></label>
+          <label class="wide">Legend entries<input id="percentile-legend-entries" type="text"></label>
+          <label>Display<select id="percentile-display"></select></label>
+          <label>Legend<select id="percentile-legend-mode"></select></label>
+        </div>
+      </section>
+      <section class="settings-panel">
+        <h2>Lines & Legend</h2>
+        <div class="settings-fields">
+          <label>Line shape<select id="line-shape"></select></label>
+          <label>Percentile dash<select id="percentile-dash"></select></label>
+          <label>Legend position<select id="legend-position"></select></label>
+          <label>Line width<input id="line-width" type="number" min="0.2" max="12" step="0.2" value="1.4"></label>
+          <label>Marker size<input id="marker-size" type="number" min="0" max="20" step="0.5" value="0"></label>
+          <label>Opacity<input id="line-opacity" type="number" min="0.05" max="1" step="0.05" value="1"></label>
+        </div>
+      </section>
+      <section class="settings-panel">
+        <h2>Figure & Export</h2>
+        <div class="settings-fields">
+          <label class="wide">Figure title<input id="title-text" type="text" value="100 EV Models / Charging Power"></label>
+          <label class="wide">Font family<input id="font-family" type="text" value="Times New Roman"></label>
+          <label>Figure width [px]<input id="plot-width" type="number" min="250" max="4000" step="1" value="500"></label>
+          <label>Figure height [px]<input id="plot-height" type="number" min="180" max="3000" step="1" value="400"></label>
+          <label>Base font size<input id="font-size" type="number" min="8" max="40" step="1" value="16"></label>
+          <label>Title font size<input id="title-font-size" type="number" min="10" max="60" step="1" value="16"></label>
+          <label>Axis title font size<input id="axis-title-font-size" type="number" min="8" max="44" step="1" value="16"></label>
+          <label>Tick font size<input id="tick-font-size" type="number" min="6" max="36" step="1" value="16"></label>
+          <label>Legend font size<input id="legend-font-size" type="number" min="6" max="36" step="1" value="16"></label>
+          <label>SAE options<div id="publication-options" class="check-row"></div></label>
+          <div class="export-row wide">
+            <button id="export-svg">Export SVG</button>
+            <div id="export-status"></div>
+          </div>
+        </div>
+      </section>
     </section>
 
     <section class="graph-wrap">
       <div id="curve-plot"></div>
+    </section>
+    <section class="methodology-box">
+      <h2>ADAC DC Charging Test Methodology</h2>
+      <blockquote>Geladen wird im Test an einer <strong>300 kW</strong> starken Schnellladesäule von <strong>Alpitronic</strong>.</blockquote>
+      <p>ADAC records charging curves to make DC charging-power fluctuations transparent. Vehicles are preconditioned overnight in a 20 °C test hall; the range basis is the mixed ADAC Ecotest cycle with urban, rural, and motorway shares. Where supported, route-planning battery preconditioning is triggered before charging. Charging power can still vary with cell state, charging management, and ambient temperature.</p>
+      <p class="methodology-source">Source: <a href="https://www.adac.de/rund-ums-fahrzeug/elektromobilitaet/laden/schnellladen-langstrecke-ladekurven-2026/" target="_blank" rel="noopener noreferrer">ADAC article</a></p>
     </section>
     <p class="small">Static GitHub Pages build. Data are loaded from <code>assets/data.json</code>.</p>
   </main>

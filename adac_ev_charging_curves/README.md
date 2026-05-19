@@ -128,6 +128,7 @@ Die Oberfläche enthält:
 
 - selectable vehicle table with ADAC metadata and checkboxes
 - buttons for `Select all` and `Select none`
+- source link to the ADAC article above the controls
 - plot mode switch between individual `Vehicles` and aggregated `Percentiles`
 - editable percentile list; default is `Worst`, every 5% step from `5% Percentile` to `95% Percentile`, and `Top`
 - separate control for which percentile lines receive legend entries, e.g. only `Worst, 25, 50, 75, Top`
@@ -139,6 +140,8 @@ Die Oberfläche enthält:
 - configurable x and y axes, including SOC, absolute charging power in kW, and relative charging power as percent of each vehicle's maximum; axis units are written in square brackets
 - line colors by vehicle, manufacturer, or continuous quantities such as observed maximum power and range values
 - one legend entry per manufacturer when `Brand / manufacturer (discrete)` is selected
+- grouped settings panels for analysis, percentiles, line/legend styling, and figure/export controls
+- methodology note below the figure with a short ADAC excerpt and paraphrased test context
 - publication-oriented defaults: percentile mode, relative charging power, colorbar legend, Times New Roman, 500 x 400 px, 16 px labels, white background, subtle grid, black axis lines, and centered bold title
 - display options for font family, line shape, percentile dash style, line width, marker size, opacity, figure width/height, font sizes, and cyclic line styles
 - for continuous color scales, individual line legend entries are hidden; only the colorbar remains visible
