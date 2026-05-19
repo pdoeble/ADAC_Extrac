@@ -1,0 +1,24 @@
+{
+  "source_name": "ADAC / Infogram",
+  "main_article_url": "https://www.adac.de/rund-ums-fahrzeug/elektromobilitaet/laden/schnellladen-langstrecke-ladekurven-2026/",
+  "infogram_url": "https://www.adac.de/infogram/a194a8ff-52a8-41cb-bd33-e553c66f04f8/?parent_url=https%3A%2F%2Fwww.adac.de%2Frund-ums-fahrzeug%2Felektromobilitaet%2Fladen%2Fschnellladen-langstrecke-ladekurven-2026%2F&src=embed#async_embed",
+  "extraction_timestamp_utc": "2026-05-19T08:53:35Z",
+  "method": "Playwright DOM extraction of Infogram SVG points",
+  "primary_curve_source": "circle.igc-data-point aria-label",
+  "fallback_curve_source": "SVG coordinate calibration when aria-labels are not parseable",
+  "notes": [
+    "The SVG path is stored for audit purposes only.",
+    "The primary numerical data are taken from point aria-labels if available.",
+    "The data may be website-rendered/processed data, not necessarily original ADAC raw measurement data."
+  ],
+  "summary": {
+    "vehicle_count": 3,
+    "vehicles_with_points": 3,
+    "vehicles_without_points": 0,
+    "point_count": 213,
+    "soc_percent_min": 10.0,
+    "soc_percent_max": 80.0,
+    "charging_power_kw_min": 101.4,
+    "charging_power_kw_max": 296.2
+  }
+}

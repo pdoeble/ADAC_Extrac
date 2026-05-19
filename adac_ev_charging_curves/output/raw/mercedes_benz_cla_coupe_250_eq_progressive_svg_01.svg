@@ -1,0 +1,3 @@
+<svg style="position: inherit; width: 14px; height: 14px;" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path style="transform-origin: 50% 50%; transform: scale(1, -1);" fill="#333" fill-rule="evenodd" clip-rule="evenodd" d="M512 64l-116 116c12 23 20 48 20 76 0 88-72 160-160 160-88 0-160-72-160-160 0-88 72-160 160-160 28 0 53 8 76 20l116-116z m-352 192c0 53 43 96 96 96 53 0 96-43 96-96 0-53-43-96-96-96-53 0-96 43-96 96z"></path>
+    </svg>

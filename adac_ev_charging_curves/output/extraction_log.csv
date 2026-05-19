@@ -1,0 +1,408 @@
+timestamp_utc,level,vehicle_id,display_name,message
+2026-05-19T08:51:29Z,INFO,mercedes_benz_cla_coupe_250_eq_progressive,Mercedes-Benz CLA Coupe 250+ EQ Progressive,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,porsche_taycan_performancebatterie_plus,Porsche Taycan Performancebatterie Plus,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,mercedes_benz_eqs_450_amg_line,Mercedes-Benz EQS 450+ AMG Line,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,hyundai_ioniq_6_77_4_kwh_rwd,"Hyundai IONIQ 6 77,4 kWh RWD",Model recognized from table.
+2026-05-19T08:51:29Z,INFO,audi_a6_avant_e_tron_performance,Audi A6 Avant e-tron performance,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,audi_q6_e_tron_performance,Audi Q6 e-tron performance,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,smart_5_premium,Smart #5 Premium,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,lucid_air_grand_touring,Lucid Air Grand Touring,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,bmw_ix_xdrive50_108_8_kwh,"BMW iX xDrive50 108,8 kWh",Model recognized from table.
+2026-05-19T08:51:29Z,INFO,hyundai_ioniq_9_techniq,Hyundai IONIQ 9 TECHNIQ,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,genesis_gv60,Genesis GV60,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,mercedes_benz_eqs_450_107_8_kwh,"Mercedes-Benz EQS 450+ 107,8 kWh",Model recognized from table.
+2026-05-19T08:51:29Z,INFO,xpeng_g6_long_range,XPeng G6 Long Range,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,hyundai_ioniq_5_84_kwh_uniq_2wd,Hyundai IONIQ 5 (84 kWh) UNIQ 2WD,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,mercedes_benz_eqe_suv_350,Mercedes-Benz EQE SUV 350+,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,polestar_2_lr_sm_82_kwh,Polestar 2 LR SM 82 kWh,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,nio_et5_touring_100_kwh,NIO ET5 Touring 100 kWh,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,porsche_macan,Porsche Macan,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,hyundai_ioniq_5_77_4_kwh_rwd,"Hyundai IONIQ 5 77,4 kWh RWD",Model recognized from table.
+2026-05-19T08:51:29Z,INFO,mercedes_benz_eqe_350_rwd,Mercedes-Benz EQE 350+ RWD,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,hyundai_ioniq_6_77_4_kwh_awd,"Hyundai IONIQ 6 77,4 kWh AWD",Model recognized from table.
+2026-05-19T08:51:29Z,INFO,mercedes_benz_eqs_580_107_8_kwh,"Mercedes-Benz EQS 580 107,8 kWh",Model recognized from table.
+2026-05-19T08:51:29Z,INFO,bmw_i7_xdrive60,BMW i7 xDrive60,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,tesla_model_x,Tesla Model X,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,kia_ev6_earth,KIA EV6 Earth,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,vw_id_3_gtx,VW ID.3 GTX,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,volvo_xc40_recharge_sm_79_kwh,Volvo XC40 Recharge SM 79 kWh,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,tesla_model_s,Tesla Model S,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,bmw_i5_edrive40,BMW i5 eDrive40,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,polestar_4_long_range_single_motor,Polestar 4 Long Range Single Motor,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,xpeng_g9_awd,XPeng G9 AWD,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,volvo_ec40_sm_er,Volvo EC40 SM ER,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,opel_grandland_electric_long_range_gs_97_kwh,Opel Grandland Electric Long Range GS (97 kWh),Model recognized from table.
+2026-05-19T08:51:29Z,INFO,hyundai_ioniq_5_77_4_kwh_awd,"Hyundai IONIQ 5 77,4 kWh AWD",Model recognized from table.
+2026-05-19T08:51:29Z,INFO,bmw_i4_edrive40_80_7_kwh,"BMW i4 eDrive40 80,7 kWh",Model recognized from table.
+2026-05-19T08:51:29Z,INFO,vw_id_7_tourer_gtx,VW ID.7 Tourer GTX,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,ford_capri_extended_range_79_kwh_premium_awd,Ford Capri Extended Range (79 kWh) Premium AWD,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,vw_id_7_pro,VW ID.7 Pro,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,bmw_i4_xdrive40_m_sportpaket,BMW i4 xDrive40 M Sportpaket,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,nio_et5_100_kwh,NIO ET5 100 kWh,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,skoda_enyaq_85x_sportline,Skoda Enyaq 85x Sportline,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,genesis_g80_electrified_awd,Genesis G80 Electrified AWD,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,ford_explorer_ev_extended_range_79_kwh_premium_awd,Ford Explorer EV Extended Range (79 kWh) Premium AWD,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,cupra_tavascan_endurance,Cupra Tavascan Endurance,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,xpeng_p7_awd,XPeng P7 AWD,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,tesla_model_3_mr_awd,Tesla Model 3 MR AWD,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,audi_q8_e_tron_55_106_kwh,Audi Q8 e-tron 55 106 kWh,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,skoda_elroq_85,Skoda Elroq 85,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,byd_sealion_7_excellence_awd,BYD Sealion 7 Excellence AWD,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,nio_el8_long_range_executive,NIO EL8 Long Range Executive,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,vw_id_3_77_kwh_facelift,VW ID.3 77 kWh Facelift,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,renault_scenic_e_tech_220,Renault Scenic E-Tech 220,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,skoda_enyaq_85x,Skoda Enyaq 85x,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,skoda_enyaq_coupe_rs_iv,Skoda Enyaq Coupe RS iV,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,mazda_6e_takumi_plus,Mazda 6e Takumi Plus,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,mg_mgs5_ev_long_range_luxury,MG MGS5 EV Long Range Luxury,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,nio_et7_100_kwh,NIO ET7 100 kWh,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,audi_q4_45_e_tron_77_kwh,Audi Q4 45 e-tron 77 kWH,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,peugeot_e_5008_210_gt_7_sitzer,Peugeot e-5008 210 GT (7-Sitzer),Model recognized from table.
+2026-05-19T08:51:29Z,INFO,audi_e_tron_gt_quattro,Audi e-tron GT quattro,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,smart_3_premium,smart #3 Premium,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,mg_4_extended_range,MG 4 Extended Range,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,bmw_ix2_xdrive30,BMW iX2 xDrive30,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,hyundai_ioniq_5_n,Hyundai IONIQ 5 N,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,ford_mustang_mach_e_extended_range_rwd,Ford Mustang Mach-E Extended Range RWD,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,tesla_model_y_mr,Tesla Model Y MR,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,genesis_gv_60_awd,Genesis GV 60 AWD,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,mg_4_electric_luxury,MG 4 Electric Luxury,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,peugeot_e_3008_210_gt,Peugeot e-3008 210 GT,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,smart_1_premium,smart #1 Premium,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,genesis_gv70_electrified,Genesis GV70 Electrified,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,toyota_bz4x,Toyota bZ4X,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,bmw_ix3,BMW iX3,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,vw_id_5_pro_performance,VW ID.5 Pro Performance,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,vw_id_buzz_lang_pro,VW ID.Buzz lang Pro,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,volvo_c40_recharge_sm_67_kwh,Volvo C40 Recharge SM 67 kWh,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,tesla_model_3,Tesla Model 3,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,ford_mustang_mach_e_extended,Ford Mustang Mach-E Extended,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,kia_ev6_58_kwh,KIA EV6 58 kWh,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,byd_seal_u,BYD Seal U,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,volvo_ex30_awd,Volvo EX30 AWD,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,polestar_2_lr_dm_78_kwh,Polestar 2 LR DM 78 kWh,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,hyundai_kona_elektro_65_4_kwh,"Hyundai Kona Elektro 65,4 kWh",Model recognized from table.
+2026-05-19T08:51:29Z,INFO,nio_el7_100_kwh,NIO EL7 100 kWh,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,vw_id_buzz,VW ID.Buzz,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,bmw_ix1_xdrive30,BMW iX1 xDrive30,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,smart_1_pro_plus,Smart #1 Pro Plus,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,kia_ev3_58_3_kwh_earth,"KIA EV3 58,3 kWh Earth",Model recognized from table.
+2026-05-19T08:51:29Z,INFO,byd_seal_rwd,BYD Seal RWD,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,volvo_ex30_twin_motor_performance_cross_country_ultra_awd,Volvo EX30 Twin Motor Performance Cross Country Ultra AWD,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,volvo_ex30_sm_er,Volvo EX30 SM ER,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,peugeot_e_208_156,Peugeot e-208 156,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,mini_aceman_se_favoured_trim,MINI Aceman SE Favoured Trim,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,kia_niro_ev_64_8_kwh,"Kia Niro EV 64,8 kWh",Model recognized from table.
+2026-05-19T08:51:29Z,INFO,opel_astra_elekctric_gs,Opel Astra Elekctric GS,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,mercedes_benz_eqb_350,Mercedes-Benz EQB 350,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,peugeot_e_308_156,Peugeot e-308 156,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,subaru_solterra,Subaru Solterra,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,renault_r5_e_tech_electric_150_comfort_range_techno,Renault R5 E-Tech Electric 150 Comfort Range Techno,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,mercedes_benz_eqa_250,Mercedes-Benz EQA 250,Model recognized from table.
+2026-05-19T08:51:29Z,INFO,mercedes_benz_cla_coupe_250_eq_progressive,Mercedes-Benz CLA Coupe 250+ EQ Progressive,Model clicked (attempt 1).
+2026-05-19T08:51:29Z,INFO,mercedes_benz_cla_coupe_250_eq_progressive,Mercedes-Benz CLA Coupe 250+ EQ Progressive,Extracted 71 point(s).
+2026-05-19T08:51:29Z,INFO,mercedes_benz_cla_coupe_250_eq_progressive,Mercedes-Benz CLA Coupe 250+ EQ Progressive,Extracted 2 path(s).
+2026-05-19T08:51:30Z,INFO,porsche_taycan_performancebatterie_plus,Porsche Taycan Performancebatterie Plus,Model clicked (attempt 1).
+2026-05-19T08:51:30Z,INFO,porsche_taycan_performancebatterie_plus,Porsche Taycan Performancebatterie Plus,Extracted 71 point(s).
+2026-05-19T08:51:30Z,INFO,porsche_taycan_performancebatterie_plus,Porsche Taycan Performancebatterie Plus,Extracted 2 path(s).
+2026-05-19T08:51:30Z,INFO,mercedes_benz_eqs_450_amg_line,Mercedes-Benz EQS 450+ AMG Line,Model clicked (attempt 1).
+2026-05-19T08:51:31Z,INFO,mercedes_benz_eqs_450_amg_line,Mercedes-Benz EQS 450+ AMG Line,Extracted 71 point(s).
+2026-05-19T08:51:31Z,INFO,mercedes_benz_eqs_450_amg_line,Mercedes-Benz EQS 450+ AMG Line,Extracted 2 path(s).
+2026-05-19T08:51:31Z,INFO,hyundai_ioniq_6_77_4_kwh_rwd,"Hyundai IONIQ 6 77,4 kWh RWD",Model clicked (attempt 1).
+2026-05-19T08:51:32Z,INFO,hyundai_ioniq_6_77_4_kwh_rwd,"Hyundai IONIQ 6 77,4 kWh RWD",Extracted 71 point(s).
+2026-05-19T08:51:32Z,INFO,hyundai_ioniq_6_77_4_kwh_rwd,"Hyundai IONIQ 6 77,4 kWh RWD",Extracted 2 path(s).
+2026-05-19T08:51:32Z,INFO,audi_a6_avant_e_tron_performance,Audi A6 Avant e-tron performance,Model clicked (attempt 1).
+2026-05-19T08:51:32Z,INFO,audi_a6_avant_e_tron_performance,Audi A6 Avant e-tron performance,Extracted 71 point(s).
+2026-05-19T08:51:32Z,INFO,audi_a6_avant_e_tron_performance,Audi A6 Avant e-tron performance,Extracted 2 path(s).
+2026-05-19T08:51:33Z,INFO,audi_q6_e_tron_performance,Audi Q6 e-tron performance,Model clicked (attempt 1).
+2026-05-19T08:51:33Z,INFO,audi_q6_e_tron_performance,Audi Q6 e-tron performance,Extracted 71 point(s).
+2026-05-19T08:51:33Z,INFO,audi_q6_e_tron_performance,Audi Q6 e-tron performance,Extracted 2 path(s).
+2026-05-19T08:51:33Z,INFO,smart_5_premium,Smart #5 Premium,Model clicked (attempt 1).
+2026-05-19T08:51:34Z,INFO,smart_5_premium,Smart #5 Premium,Extracted 71 point(s).
+2026-05-19T08:51:34Z,INFO,smart_5_premium,Smart #5 Premium,Extracted 2 path(s).
+2026-05-19T08:51:34Z,INFO,lucid_air_grand_touring,Lucid Air Grand Touring,Model clicked (attempt 1).
+2026-05-19T08:51:35Z,INFO,lucid_air_grand_touring,Lucid Air Grand Touring,Extracted 71 point(s).
+2026-05-19T08:51:35Z,INFO,lucid_air_grand_touring,Lucid Air Grand Touring,Extracted 2 path(s).
+2026-05-19T08:51:35Z,INFO,bmw_ix_xdrive50_108_8_kwh,"BMW iX xDrive50 108,8 kWh",Model clicked (attempt 1).
+2026-05-19T08:51:35Z,INFO,bmw_ix_xdrive50_108_8_kwh,"BMW iX xDrive50 108,8 kWh",Extracted 71 point(s).
+2026-05-19T08:51:35Z,INFO,bmw_ix_xdrive50_108_8_kwh,"BMW iX xDrive50 108,8 kWh",Extracted 2 path(s).
+2026-05-19T08:51:36Z,INFO,hyundai_ioniq_9_techniq,Hyundai IONIQ 9 TECHNIQ,Model clicked (attempt 1).
+2026-05-19T08:51:36Z,INFO,hyundai_ioniq_9_techniq,Hyundai IONIQ 9 TECHNIQ,Extracted 71 point(s).
+2026-05-19T08:51:36Z,INFO,hyundai_ioniq_9_techniq,Hyundai IONIQ 9 TECHNIQ,Extracted 2 path(s).
+2026-05-19T08:51:36Z,INFO,genesis_gv60,Genesis GV60,Model clicked (attempt 1).
+2026-05-19T08:51:37Z,INFO,genesis_gv60,Genesis GV60,Extracted 71 point(s).
+2026-05-19T08:51:37Z,INFO,genesis_gv60,Genesis GV60,Extracted 2 path(s).
+2026-05-19T08:51:37Z,INFO,mercedes_benz_eqs_450_107_8_kwh,"Mercedes-Benz EQS 450+ 107,8 kWh",Model clicked (attempt 1).
+2026-05-19T08:51:38Z,INFO,mercedes_benz_eqs_450_107_8_kwh,"Mercedes-Benz EQS 450+ 107,8 kWh",Extracted 71 point(s).
+2026-05-19T08:51:38Z,INFO,mercedes_benz_eqs_450_107_8_kwh,"Mercedes-Benz EQS 450+ 107,8 kWh",Extracted 2 path(s).
+2026-05-19T08:51:38Z,INFO,xpeng_g6_long_range,XPeng G6 Long Range,Model clicked (attempt 1).
+2026-05-19T08:51:38Z,INFO,xpeng_g6_long_range,XPeng G6 Long Range,Extracted 71 point(s).
+2026-05-19T08:51:38Z,INFO,xpeng_g6_long_range,XPeng G6 Long Range,Extracted 2 path(s).
+2026-05-19T08:51:39Z,INFO,hyundai_ioniq_5_84_kwh_uniq_2wd,Hyundai IONIQ 5 (84 kWh) UNIQ 2WD,Model clicked (attempt 1).
+2026-05-19T08:51:39Z,INFO,hyundai_ioniq_5_84_kwh_uniq_2wd,Hyundai IONIQ 5 (84 kWh) UNIQ 2WD,Extracted 71 point(s).
+2026-05-19T08:51:39Z,INFO,hyundai_ioniq_5_84_kwh_uniq_2wd,Hyundai IONIQ 5 (84 kWh) UNIQ 2WD,Extracted 2 path(s).
+2026-05-19T08:51:39Z,INFO,mercedes_benz_eqe_suv_350,Mercedes-Benz EQE SUV 350+,Model clicked (attempt 1).
+2026-05-19T08:51:40Z,INFO,mercedes_benz_eqe_suv_350,Mercedes-Benz EQE SUV 350+,Extracted 71 point(s).
+2026-05-19T08:51:40Z,INFO,mercedes_benz_eqe_suv_350,Mercedes-Benz EQE SUV 350+,Extracted 2 path(s).
+2026-05-19T08:51:40Z,INFO,polestar_2_lr_sm_82_kwh,Polestar 2 LR SM 82 kWh,Model clicked (attempt 1).
+2026-05-19T08:51:41Z,INFO,polestar_2_lr_sm_82_kwh,Polestar 2 LR SM 82 kWh,Extracted 71 point(s).
+2026-05-19T08:51:41Z,INFO,polestar_2_lr_sm_82_kwh,Polestar 2 LR SM 82 kWh,Extracted 2 path(s).
+2026-05-19T08:51:41Z,INFO,nio_et5_touring_100_kwh,NIO ET5 Touring 100 kWh,Model clicked (attempt 1).
+2026-05-19T08:51:41Z,INFO,nio_et5_touring_100_kwh,NIO ET5 Touring 100 kWh,Extracted 71 point(s).
+2026-05-19T08:51:41Z,INFO,nio_et5_touring_100_kwh,NIO ET5 Touring 100 kWh,Extracted 2 path(s).
+2026-05-19T08:51:42Z,INFO,porsche_macan,Porsche Macan,Model clicked (attempt 1).
+2026-05-19T08:51:42Z,INFO,porsche_macan,Porsche Macan,Extracted 71 point(s).
+2026-05-19T08:51:42Z,INFO,porsche_macan,Porsche Macan,Extracted 2 path(s).
+2026-05-19T08:51:42Z,INFO,hyundai_ioniq_5_77_4_kwh_rwd,"Hyundai IONIQ 5 77,4 kWh RWD",Model clicked (attempt 1).
+2026-05-19T08:51:43Z,INFO,hyundai_ioniq_5_77_4_kwh_rwd,"Hyundai IONIQ 5 77,4 kWh RWD",Extracted 71 point(s).
+2026-05-19T08:51:43Z,INFO,hyundai_ioniq_5_77_4_kwh_rwd,"Hyundai IONIQ 5 77,4 kWh RWD",Extracted 2 path(s).
+2026-05-19T08:51:43Z,INFO,mercedes_benz_eqe_350_rwd,Mercedes-Benz EQE 350+ RWD,Model clicked (attempt 1).
+2026-05-19T08:51:44Z,INFO,mercedes_benz_eqe_350_rwd,Mercedes-Benz EQE 350+ RWD,Extracted 71 point(s).
+2026-05-19T08:51:44Z,INFO,mercedes_benz_eqe_350_rwd,Mercedes-Benz EQE 350+ RWD,Extracted 2 path(s).
+2026-05-19T08:51:44Z,WARNING,mercedes_benz_eqe_350_rwd,Mercedes-Benz EQE 350+ RWD,SVG series label differs from table display_name; accepted as fuzzy match: mercedes_benz_eqe_suv_350
+2026-05-19T08:51:44Z,INFO,hyundai_ioniq_6_77_4_kwh_awd,"Hyundai IONIQ 6 77,4 kWh AWD",Model clicked (attempt 1).
+2026-05-19T08:51:44Z,INFO,hyundai_ioniq_6_77_4_kwh_awd,"Hyundai IONIQ 6 77,4 kWh AWD",Extracted 71 point(s).
+2026-05-19T08:51:44Z,INFO,hyundai_ioniq_6_77_4_kwh_awd,"Hyundai IONIQ 6 77,4 kWh AWD",Extracted 2 path(s).
+2026-05-19T08:51:45Z,INFO,mercedes_benz_eqs_580_107_8_kwh,"Mercedes-Benz EQS 580 107,8 kWh",Model clicked (attempt 1).
+2026-05-19T08:51:45Z,INFO,mercedes_benz_eqs_580_107_8_kwh,"Mercedes-Benz EQS 580 107,8 kWh",Extracted 71 point(s).
+2026-05-19T08:51:45Z,INFO,mercedes_benz_eqs_580_107_8_kwh,"Mercedes-Benz EQS 580 107,8 kWh",Extracted 2 path(s).
+2026-05-19T08:51:45Z,INFO,bmw_i7_xdrive60,BMW i7 xDrive60,Model clicked (attempt 1).
+2026-05-19T08:51:46Z,INFO,bmw_i7_xdrive60,BMW i7 xDrive60,Extracted 71 point(s).
+2026-05-19T08:51:46Z,INFO,bmw_i7_xdrive60,BMW i7 xDrive60,Extracted 2 path(s).
+2026-05-19T08:51:46Z,INFO,tesla_model_x,Tesla Model X,Model clicked (attempt 1).
+2026-05-19T08:51:47Z,INFO,tesla_model_x,Tesla Model X,Extracted 71 point(s).
+2026-05-19T08:51:47Z,INFO,tesla_model_x,Tesla Model X,Extracted 2 path(s).
+2026-05-19T08:51:47Z,INFO,kia_ev6_earth,KIA EV6 Earth,Model clicked (attempt 1).
+2026-05-19T08:51:47Z,INFO,kia_ev6_earth,KIA EV6 Earth,Extracted 71 point(s).
+2026-05-19T08:51:47Z,INFO,kia_ev6_earth,KIA EV6 Earth,Extracted 2 path(s).
+2026-05-19T08:51:48Z,INFO,vw_id_3_gtx,VW ID.3 GTX,Model clicked (attempt 1).
+2026-05-19T08:51:48Z,INFO,vw_id_3_gtx,VW ID.3 GTX,Extracted 71 point(s).
+2026-05-19T08:51:48Z,INFO,vw_id_3_gtx,VW ID.3 GTX,Extracted 2 path(s).
+2026-05-19T08:51:48Z,INFO,volvo_xc40_recharge_sm_79_kwh,Volvo XC40 Recharge SM 79 kWh,Model clicked (attempt 1).
+2026-05-19T08:51:49Z,INFO,volvo_xc40_recharge_sm_79_kwh,Volvo XC40 Recharge SM 79 kWh,Extracted 71 point(s).
+2026-05-19T08:51:49Z,INFO,volvo_xc40_recharge_sm_79_kwh,Volvo XC40 Recharge SM 79 kWh,Extracted 2 path(s).
+2026-05-19T08:51:49Z,INFO,tesla_model_s,Tesla Model S,Model clicked (attempt 1).
+2026-05-19T08:51:50Z,INFO,tesla_model_s,Tesla Model S,Extracted 71 point(s).
+2026-05-19T08:51:50Z,INFO,tesla_model_s,Tesla Model S,Extracted 2 path(s).
+2026-05-19T08:51:50Z,INFO,bmw_i5_edrive40,BMW i5 eDrive40,Model clicked (attempt 1).
+2026-05-19T08:51:50Z,INFO,bmw_i5_edrive40,BMW i5 eDrive40,Extracted 71 point(s).
+2026-05-19T08:51:50Z,INFO,bmw_i5_edrive40,BMW i5 eDrive40,Extracted 1 path(s).
+2026-05-19T08:51:51Z,INFO,polestar_4_long_range_single_motor,Polestar 4 Long Range Single Motor,Model clicked (attempt 1).
+2026-05-19T08:51:51Z,INFO,polestar_4_long_range_single_motor,Polestar 4 Long Range Single Motor,Extracted 71 point(s).
+2026-05-19T08:51:51Z,INFO,polestar_4_long_range_single_motor,Polestar 4 Long Range Single Motor,Extracted 2 path(s).
+2026-05-19T08:51:51Z,INFO,xpeng_g9_awd,XPeng G9 AWD,Model clicked (attempt 1).
+2026-05-19T08:51:52Z,INFO,xpeng_g9_awd,XPeng G9 AWD,Extracted 71 point(s).
+2026-05-19T08:51:52Z,INFO,xpeng_g9_awd,XPeng G9 AWD,Extracted 2 path(s).
+2026-05-19T08:51:52Z,INFO,volvo_ec40_sm_er,Volvo EC40 SM ER,Model clicked (attempt 1).
+2026-05-19T08:51:53Z,INFO,volvo_ec40_sm_er,Volvo EC40 SM ER,Extracted 71 point(s).
+2026-05-19T08:51:53Z,INFO,volvo_ec40_sm_er,Volvo EC40 SM ER,Extracted 2 path(s).
+2026-05-19T08:51:53Z,INFO,opel_grandland_electric_long_range_gs_97_kwh,Opel Grandland Electric Long Range GS (97 kWh),Model clicked (attempt 1).
+2026-05-19T08:51:53Z,INFO,opel_grandland_electric_long_range_gs_97_kwh,Opel Grandland Electric Long Range GS (97 kWh),Extracted 71 point(s).
+2026-05-19T08:51:53Z,INFO,opel_grandland_electric_long_range_gs_97_kwh,Opel Grandland Electric Long Range GS (97 kWh),Extracted 2 path(s).
+2026-05-19T08:51:54Z,INFO,hyundai_ioniq_5_77_4_kwh_awd,"Hyundai IONIQ 5 77,4 kWh AWD",Model clicked (attempt 1).
+2026-05-19T08:51:54Z,INFO,hyundai_ioniq_5_77_4_kwh_awd,"Hyundai IONIQ 5 77,4 kWh AWD",Extracted 71 point(s).
+2026-05-19T08:51:54Z,INFO,hyundai_ioniq_5_77_4_kwh_awd,"Hyundai IONIQ 5 77,4 kWh AWD",Extracted 2 path(s).
+2026-05-19T08:51:54Z,INFO,bmw_i4_edrive40_80_7_kwh,"BMW i4 eDrive40 80,7 kWh",Model clicked (attempt 1).
+2026-05-19T08:51:55Z,INFO,bmw_i4_edrive40_80_7_kwh,"BMW i4 eDrive40 80,7 kWh",Extracted 71 point(s).
+2026-05-19T08:51:55Z,INFO,bmw_i4_edrive40_80_7_kwh,"BMW i4 eDrive40 80,7 kWh",Extracted 2 path(s).
+2026-05-19T08:51:55Z,INFO,vw_id_7_tourer_gtx,VW ID.7 Tourer GTX,Model clicked (attempt 1).
+2026-05-19T08:51:56Z,INFO,vw_id_7_tourer_gtx,VW ID.7 Tourer GTX,Extracted 71 point(s).
+2026-05-19T08:51:56Z,INFO,vw_id_7_tourer_gtx,VW ID.7 Tourer GTX,Extracted 2 path(s).
+2026-05-19T08:51:56Z,INFO,ford_capri_extended_range_79_kwh_premium_awd,Ford Capri Extended Range (79 kWh) Premium AWD,Model clicked (attempt 1).
+2026-05-19T08:51:56Z,INFO,ford_capri_extended_range_79_kwh_premium_awd,Ford Capri Extended Range (79 kWh) Premium AWD,Extracted 71 point(s).
+2026-05-19T08:51:56Z,INFO,ford_capri_extended_range_79_kwh_premium_awd,Ford Capri Extended Range (79 kWh) Premium AWD,Extracted 2 path(s).
+2026-05-19T08:51:57Z,INFO,vw_id_7_pro,VW ID.7 Pro,Model clicked (attempt 1).
+2026-05-19T08:51:57Z,INFO,vw_id_7_pro,VW ID.7 Pro,Extracted 71 point(s).
+2026-05-19T08:51:57Z,INFO,vw_id_7_pro,VW ID.7 Pro,Extracted 2 path(s).
+2026-05-19T08:51:57Z,INFO,bmw_i4_xdrive40_m_sportpaket,BMW i4 xDrive40 M Sportpaket,Model clicked (attempt 1).
+2026-05-19T08:51:58Z,INFO,bmw_i4_xdrive40_m_sportpaket,BMW i4 xDrive40 M Sportpaket,Extracted 71 point(s).
+2026-05-19T08:51:58Z,INFO,bmw_i4_xdrive40_m_sportpaket,BMW i4 xDrive40 M Sportpaket,Extracted 2 path(s).
+2026-05-19T08:51:58Z,INFO,nio_et5_100_kwh,NIO ET5 100 kWh,Model clicked (attempt 1).
+2026-05-19T08:51:59Z,INFO,nio_et5_100_kwh,NIO ET5 100 kWh,Extracted 71 point(s).
+2026-05-19T08:51:59Z,INFO,nio_et5_100_kwh,NIO ET5 100 kWh,Extracted 2 path(s).
+2026-05-19T08:51:59Z,INFO,skoda_enyaq_85x_sportline,Skoda Enyaq 85x Sportline,Model clicked (attempt 1).
+2026-05-19T08:51:59Z,INFO,skoda_enyaq_85x_sportline,Skoda Enyaq 85x Sportline,Extracted 71 point(s).
+2026-05-19T08:51:59Z,INFO,skoda_enyaq_85x_sportline,Skoda Enyaq 85x Sportline,Extracted 2 path(s).
+2026-05-19T08:51:59Z,INFO,genesis_g80_electrified_awd,Genesis G80 Electrified AWD,Model clicked (attempt 1).
+2026-05-19T08:52:00Z,INFO,genesis_g80_electrified_awd,Genesis G80 Electrified AWD,Extracted 71 point(s).
+2026-05-19T08:52:00Z,INFO,genesis_g80_electrified_awd,Genesis G80 Electrified AWD,Extracted 2 path(s).
+2026-05-19T08:52:00Z,WARNING,genesis_g80_electrified_awd,Genesis G80 Electrified AWD,SVG series label differs from table display_name; accepted as fuzzy match: genesis_g80_electrified
+2026-05-19T08:52:00Z,INFO,ford_explorer_ev_extended_range_79_kwh_premium_awd,Ford Explorer EV Extended Range (79 kWh) Premium AWD,Model clicked (attempt 1).
+2026-05-19T08:52:01Z,INFO,ford_explorer_ev_extended_range_79_kwh_premium_awd,Ford Explorer EV Extended Range (79 kWh) Premium AWD,Extracted 71 point(s).
+2026-05-19T08:52:01Z,INFO,ford_explorer_ev_extended_range_79_kwh_premium_awd,Ford Explorer EV Extended Range (79 kWh) Premium AWD,Extracted 2 path(s).
+2026-05-19T08:52:01Z,INFO,cupra_tavascan_endurance,Cupra Tavascan Endurance,Model clicked (attempt 1).
+2026-05-19T08:52:01Z,INFO,cupra_tavascan_endurance,Cupra Tavascan Endurance,Extracted 71 point(s).
+2026-05-19T08:52:01Z,INFO,cupra_tavascan_endurance,Cupra Tavascan Endurance,Extracted 2 path(s).
+2026-05-19T08:52:02Z,INFO,xpeng_p7_awd,XPeng P7 AWD,Model clicked (attempt 1).
+2026-05-19T08:52:02Z,INFO,xpeng_p7_awd,XPeng P7 AWD,Extracted 71 point(s).
+2026-05-19T08:52:02Z,INFO,xpeng_p7_awd,XPeng P7 AWD,Extracted 2 path(s).
+2026-05-19T08:52:02Z,INFO,tesla_model_3_mr_awd,Tesla Model 3 MR AWD,Model clicked (attempt 1).
+2026-05-19T08:52:03Z,INFO,tesla_model_3_mr_awd,Tesla Model 3 MR AWD,Extracted 71 point(s).
+2026-05-19T08:52:03Z,INFO,tesla_model_3_mr_awd,Tesla Model 3 MR AWD,Extracted 2 path(s).
+2026-05-19T08:52:03Z,INFO,audi_q8_e_tron_55_106_kwh,Audi Q8 e-tron 55 106 kWh,Model clicked (attempt 1).
+2026-05-19T08:52:04Z,INFO,audi_q8_e_tron_55_106_kwh,Audi Q8 e-tron 55 106 kWh,Extracted 71 point(s).
+2026-05-19T08:52:04Z,INFO,audi_q8_e_tron_55_106_kwh,Audi Q8 e-tron 55 106 kWh,Extracted 2 path(s).
+2026-05-19T08:52:04Z,INFO,skoda_elroq_85,Skoda Elroq 85,Model clicked (attempt 1).
+2026-05-19T08:52:04Z,INFO,skoda_elroq_85,Skoda Elroq 85,Extracted 71 point(s).
+2026-05-19T08:52:04Z,INFO,skoda_elroq_85,Skoda Elroq 85,Extracted 2 path(s).
+2026-05-19T08:52:05Z,INFO,byd_sealion_7_excellence_awd,BYD Sealion 7 Excellence AWD,Model clicked (attempt 1).
+2026-05-19T08:52:05Z,INFO,byd_sealion_7_excellence_awd,BYD Sealion 7 Excellence AWD,Extracted 71 point(s).
+2026-05-19T08:52:05Z,INFO,byd_sealion_7_excellence_awd,BYD Sealion 7 Excellence AWD,Extracted 2 path(s).
+2026-05-19T08:52:05Z,INFO,nio_el8_long_range_executive,NIO EL8 Long Range Executive,Model clicked (attempt 1).
+2026-05-19T08:52:06Z,INFO,nio_el8_long_range_executive,NIO EL8 Long Range Executive,Extracted 71 point(s).
+2026-05-19T08:52:06Z,INFO,nio_el8_long_range_executive,NIO EL8 Long Range Executive,Extracted 2 path(s).
+2026-05-19T08:52:06Z,INFO,vw_id_3_77_kwh_facelift,VW ID.3 77 kWh Facelift,Model clicked (attempt 1).
+2026-05-19T08:52:07Z,INFO,vw_id_3_77_kwh_facelift,VW ID.3 77 kWh Facelift,Extracted 71 point(s).
+2026-05-19T08:52:07Z,INFO,vw_id_3_77_kwh_facelift,VW ID.3 77 kWh Facelift,Extracted 2 path(s).
+2026-05-19T08:52:07Z,INFO,renault_scenic_e_tech_220,Renault Scenic E-Tech 220,Model clicked (attempt 1).
+2026-05-19T08:52:07Z,INFO,renault_scenic_e_tech_220,Renault Scenic E-Tech 220,Extracted 71 point(s).
+2026-05-19T08:52:07Z,INFO,renault_scenic_e_tech_220,Renault Scenic E-Tech 220,Extracted 2 path(s).
+2026-05-19T08:52:08Z,INFO,skoda_enyaq_85x,Skoda Enyaq 85x,Model clicked (attempt 1).
+2026-05-19T08:52:08Z,INFO,skoda_enyaq_85x,Skoda Enyaq 85x,Extracted 71 point(s).
+2026-05-19T08:52:08Z,INFO,skoda_enyaq_85x,Skoda Enyaq 85x,Extracted 2 path(s).
+2026-05-19T08:52:08Z,WARNING,skoda_enyaq_85x,Skoda Enyaq 85x,SVG series label differs from table display_name; accepted as fuzzy match: skoda_enyaq_85x_sportline
+2026-05-19T08:52:08Z,INFO,skoda_enyaq_coupe_rs_iv,Skoda Enyaq Coupe RS iV,Model clicked (attempt 1).
+2026-05-19T08:52:09Z,INFO,skoda_enyaq_coupe_rs_iv,Skoda Enyaq Coupe RS iV,Extracted 71 point(s).
+2026-05-19T08:52:09Z,INFO,skoda_enyaq_coupe_rs_iv,Skoda Enyaq Coupe RS iV,Extracted 1 path(s).
+2026-05-19T08:52:09Z,INFO,mazda_6e_takumi_plus,Mazda 6e Takumi Plus,Model clicked (attempt 1).
+2026-05-19T08:52:10Z,INFO,mazda_6e_takumi_plus,Mazda 6e Takumi Plus,Extracted 71 point(s).
+2026-05-19T08:52:10Z,INFO,mazda_6e_takumi_plus,Mazda 6e Takumi Plus,Extracted 2 path(s).
+2026-05-19T08:52:10Z,INFO,mg_mgs5_ev_long_range_luxury,MG MGS5 EV Long Range Luxury,Model clicked (attempt 1).
+2026-05-19T08:52:10Z,INFO,mg_mgs5_ev_long_range_luxury,MG MGS5 EV Long Range Luxury,Extracted 71 point(s).
+2026-05-19T08:52:10Z,INFO,mg_mgs5_ev_long_range_luxury,MG MGS5 EV Long Range Luxury,Extracted 2 path(s).
+2026-05-19T08:52:10Z,INFO,nio_et7_100_kwh,NIO ET7 100 kWh,Model clicked (attempt 1).
+2026-05-19T08:52:11Z,INFO,nio_et7_100_kwh,NIO ET7 100 kWh,Extracted 71 point(s).
+2026-05-19T08:52:11Z,INFO,nio_et7_100_kwh,NIO ET7 100 kWh,Extracted 2 path(s).
+2026-05-19T08:52:11Z,INFO,audi_q4_45_e_tron_77_kwh,Audi Q4 45 e-tron 77 kWH,Model clicked (attempt 1).
+2026-05-19T08:52:12Z,INFO,audi_q4_45_e_tron_77_kwh,Audi Q4 45 e-tron 77 kWH,Extracted 71 point(s).
+2026-05-19T08:52:12Z,INFO,audi_q4_45_e_tron_77_kwh,Audi Q4 45 e-tron 77 kWH,Extracted 2 path(s).
+2026-05-19T08:52:12Z,INFO,peugeot_e_5008_210_gt_7_sitzer,Peugeot e-5008 210 GT (7-Sitzer),Model clicked (attempt 1).
+2026-05-19T08:52:12Z,INFO,peugeot_e_5008_210_gt_7_sitzer,Peugeot e-5008 210 GT (7-Sitzer),Extracted 71 point(s).
+2026-05-19T08:52:12Z,INFO,peugeot_e_5008_210_gt_7_sitzer,Peugeot e-5008 210 GT (7-Sitzer),Extracted 2 path(s).
+2026-05-19T08:52:13Z,INFO,audi_e_tron_gt_quattro,Audi e-tron GT quattro,Model clicked (attempt 1).
+2026-05-19T08:52:13Z,INFO,audi_e_tron_gt_quattro,Audi e-tron GT quattro,Extracted 71 point(s).
+2026-05-19T08:52:13Z,INFO,audi_e_tron_gt_quattro,Audi e-tron GT quattro,Extracted 2 path(s).
+2026-05-19T08:52:13Z,INFO,smart_3_premium,smart #3 Premium,Model clicked (attempt 1).
+2026-05-19T08:52:14Z,INFO,smart_3_premium,smart #3 Premium,Extracted 71 point(s).
+2026-05-19T08:52:14Z,INFO,smart_3_premium,smart #3 Premium,Extracted 2 path(s).
+2026-05-19T08:52:14Z,INFO,mg_4_extended_range,MG 4 Extended Range,Model clicked (attempt 1).
+2026-05-19T08:52:15Z,INFO,mg_4_extended_range,MG 4 Extended Range,Extracted 71 point(s).
+2026-05-19T08:52:15Z,INFO,mg_4_extended_range,MG 4 Extended Range,Extracted 2 path(s).
+2026-05-19T08:52:15Z,INFO,bmw_ix2_xdrive30,BMW iX2 xDrive30,Model clicked (attempt 1).
+2026-05-19T08:52:15Z,INFO,bmw_ix2_xdrive30,BMW iX2 xDrive30,Extracted 71 point(s).
+2026-05-19T08:52:15Z,INFO,bmw_ix2_xdrive30,BMW iX2 xDrive30,Extracted 2 path(s).
+2026-05-19T08:52:16Z,INFO,hyundai_ioniq_5_n,Hyundai IONIQ 5 N,Model clicked (attempt 1).
+2026-05-19T08:52:16Z,INFO,hyundai_ioniq_5_n,Hyundai IONIQ 5 N,Extracted 71 point(s).
+2026-05-19T08:52:16Z,INFO,hyundai_ioniq_5_n,Hyundai IONIQ 5 N,Extracted 2 path(s).
+2026-05-19T08:52:16Z,INFO,ford_mustang_mach_e_extended_range_rwd,Ford Mustang Mach-E Extended Range RWD,Model clicked (attempt 1).
+2026-05-19T08:52:17Z,INFO,ford_mustang_mach_e_extended_range_rwd,Ford Mustang Mach-E Extended Range RWD,Extracted 71 point(s).
+2026-05-19T08:52:17Z,INFO,ford_mustang_mach_e_extended_range_rwd,Ford Mustang Mach-E Extended Range RWD,Extracted 2 path(s).
+2026-05-19T08:52:17Z,WARNING,ford_mustang_mach_e_extended_range_rwd,Ford Mustang Mach-E Extended Range RWD,SVG series label differs from table display_name; accepted as fuzzy match: ford_mustang_mach_e_range_rwd
+2026-05-19T08:52:17Z,INFO,tesla_model_y_mr,Tesla Model Y MR,Model clicked (attempt 1).
+2026-05-19T08:52:18Z,INFO,tesla_model_y_mr,Tesla Model Y MR,Extracted 71 point(s).
+2026-05-19T08:52:18Z,INFO,tesla_model_y_mr,Tesla Model Y MR,Extracted 1 path(s).
+2026-05-19T08:52:18Z,INFO,genesis_gv_60_awd,Genesis GV 60 AWD,Model clicked (attempt 1).
+2026-05-19T08:52:18Z,INFO,genesis_gv_60_awd,Genesis GV 60 AWD,Extracted 71 point(s).
+2026-05-19T08:52:18Z,INFO,genesis_gv_60_awd,Genesis GV 60 AWD,Extracted 2 path(s).
+2026-05-19T08:52:19Z,INFO,mg_4_electric_luxury,MG 4 Electric Luxury,Model clicked (attempt 1).
+2026-05-19T08:52:19Z,INFO,mg_4_electric_luxury,MG 4 Electric Luxury,Extracted 71 point(s).
+2026-05-19T08:52:19Z,INFO,mg_4_electric_luxury,MG 4 Electric Luxury,Extracted 2 path(s).
+2026-05-19T08:52:19Z,INFO,peugeot_e_3008_210_gt,Peugeot e-3008 210 GT,Model clicked (attempt 1).
+2026-05-19T08:52:20Z,INFO,peugeot_e_3008_210_gt,Peugeot e-3008 210 GT,Extracted 71 point(s).
+2026-05-19T08:52:20Z,INFO,peugeot_e_3008_210_gt,Peugeot e-3008 210 GT,Extracted 2 path(s).
+2026-05-19T08:52:20Z,INFO,smart_1_premium,smart #1 Premium,Model clicked (attempt 1).
+2026-05-19T08:52:21Z,INFO,smart_1_premium,smart #1 Premium,Extracted 71 point(s).
+2026-05-19T08:52:21Z,INFO,smart_1_premium,smart #1 Premium,Extracted 2 path(s).
+2026-05-19T08:52:21Z,INFO,genesis_gv70_electrified,Genesis GV70 Electrified,Model clicked (attempt 1).
+2026-05-19T08:52:21Z,INFO,genesis_gv70_electrified,Genesis GV70 Electrified,Extracted 71 point(s).
+2026-05-19T08:52:21Z,INFO,genesis_gv70_electrified,Genesis GV70 Electrified,Extracted 2 path(s).
+2026-05-19T08:52:22Z,INFO,toyota_bz4x,Toyota bZ4X,Model clicked (attempt 1).
+2026-05-19T08:52:22Z,INFO,toyota_bz4x,Toyota bZ4X,Extracted 71 point(s).
+2026-05-19T08:52:22Z,INFO,toyota_bz4x,Toyota bZ4X,Extracted 2 path(s).
+2026-05-19T08:52:22Z,INFO,bmw_ix3,BMW iX3,Model clicked (attempt 1).
+2026-05-19T08:52:23Z,INFO,bmw_ix3,BMW iX3,Extracted 71 point(s).
+2026-05-19T08:52:23Z,INFO,bmw_ix3,BMW iX3,Extracted 2 path(s).
+2026-05-19T08:52:23Z,INFO,vw_id_5_pro_performance,VW ID.5 Pro Performance,Model clicked (attempt 1).
+2026-05-19T08:52:24Z,INFO,vw_id_5_pro_performance,VW ID.5 Pro Performance,Extracted 71 point(s).
+2026-05-19T08:52:24Z,INFO,vw_id_5_pro_performance,VW ID.5 Pro Performance,Extracted 2 path(s).
+2026-05-19T08:52:24Z,INFO,vw_id_buzz_lang_pro,VW ID.Buzz lang Pro,Model clicked (attempt 1).
+2026-05-19T08:52:24Z,INFO,vw_id_buzz_lang_pro,VW ID.Buzz lang Pro,Extracted 71 point(s).
+2026-05-19T08:52:24Z,INFO,vw_id_buzz_lang_pro,VW ID.Buzz lang Pro,Extracted 2 path(s).
+2026-05-19T08:52:25Z,INFO,volvo_c40_recharge_sm_67_kwh,Volvo C40 Recharge SM 67 kWh,Model clicked (attempt 1).
+2026-05-19T08:52:25Z,INFO,volvo_c40_recharge_sm_67_kwh,Volvo C40 Recharge SM 67 kWh,Extracted 71 point(s).
+2026-05-19T08:52:25Z,INFO,volvo_c40_recharge_sm_67_kwh,Volvo C40 Recharge SM 67 kWh,Extracted 2 path(s).
+2026-05-19T08:52:25Z,INFO,tesla_model_3,Tesla Model 3,Model clicked (attempt 1).
+2026-05-19T08:52:26Z,INFO,tesla_model_3,Tesla Model 3,Extracted 71 point(s).
+2026-05-19T08:52:26Z,INFO,tesla_model_3,Tesla Model 3,Extracted 2 path(s).
+2026-05-19T08:52:26Z,INFO,ford_mustang_mach_e_extended,Ford Mustang Mach-E Extended,Model clicked (attempt 1).
+2026-05-19T08:52:27Z,INFO,ford_mustang_mach_e_extended,Ford Mustang Mach-E Extended,Extracted 71 point(s).
+2026-05-19T08:52:27Z,INFO,ford_mustang_mach_e_extended,Ford Mustang Mach-E Extended,Extracted 2 path(s).
+2026-05-19T08:52:27Z,WARNING,ford_mustang_mach_e_extended,Ford Mustang Mach-E Extended,SVG series label differs from table display_name; accepted as fuzzy match: ford_mustang_mach_e_range_awd
+2026-05-19T08:52:27Z,INFO,kia_ev6_58_kwh,KIA EV6 58 kWh,Model clicked (attempt 1).
+2026-05-19T08:52:27Z,INFO,kia_ev6_58_kwh,KIA EV6 58 kWh,Extracted 71 point(s).
+2026-05-19T08:52:27Z,INFO,kia_ev6_58_kwh,KIA EV6 58 kWh,Extracted 2 path(s).
+2026-05-19T08:52:27Z,INFO,byd_seal_u,BYD Seal U,Model clicked (attempt 1).
+2026-05-19T08:52:28Z,INFO,byd_seal_u,BYD Seal U,Extracted 71 point(s).
+2026-05-19T08:52:28Z,INFO,byd_seal_u,BYD Seal U,Extracted 2 path(s).
+2026-05-19T08:52:28Z,INFO,volvo_ex30_awd,Volvo EX30 AWD,Model clicked (attempt 1).
+2026-05-19T08:52:29Z,INFO,volvo_ex30_awd,Volvo EX30 AWD,Extracted 71 point(s).
+2026-05-19T08:52:29Z,INFO,volvo_ex30_awd,Volvo EX30 AWD,Extracted 2 path(s).
+2026-05-19T08:52:29Z,INFO,polestar_2_lr_dm_78_kwh,Polestar 2 LR DM 78 kWh,Model clicked (attempt 1).
+2026-05-19T08:52:30Z,INFO,polestar_2_lr_dm_78_kwh,Polestar 2 LR DM 78 kWh,Extracted 71 point(s).
+2026-05-19T08:52:30Z,INFO,polestar_2_lr_dm_78_kwh,Polestar 2 LR DM 78 kWh,Extracted 2 path(s).
+2026-05-19T08:52:30Z,INFO,hyundai_kona_elektro_65_4_kwh,"Hyundai Kona Elektro 65,4 kWh",Model clicked (attempt 1).
+2026-05-19T08:52:30Z,INFO,hyundai_kona_elektro_65_4_kwh,"Hyundai Kona Elektro 65,4 kWh",Extracted 71 point(s).
+2026-05-19T08:52:30Z,INFO,hyundai_kona_elektro_65_4_kwh,"Hyundai Kona Elektro 65,4 kWh",Extracted 2 path(s).
+2026-05-19T08:52:30Z,INFO,nio_el7_100_kwh,NIO EL7 100 kWh,Model clicked (attempt 1).
+2026-05-19T08:52:31Z,INFO,nio_el7_100_kwh,NIO EL7 100 kWh,Extracted 71 point(s).
+2026-05-19T08:52:31Z,INFO,nio_el7_100_kwh,NIO EL7 100 kWh,Extracted 2 path(s).
+2026-05-19T08:52:31Z,INFO,vw_id_buzz,VW ID.Buzz,Model clicked (attempt 1).
+2026-05-19T08:52:32Z,INFO,vw_id_buzz,VW ID.Buzz,Extracted 71 point(s).
+2026-05-19T08:52:32Z,INFO,vw_id_buzz,VW ID.Buzz,Extracted 2 path(s).
+2026-05-19T08:52:32Z,INFO,bmw_ix1_xdrive30,BMW iX1 xDrive30,Model clicked (attempt 1).
+2026-05-19T08:52:32Z,INFO,bmw_ix1_xdrive30,BMW iX1 xDrive30,Extracted 71 point(s).
+2026-05-19T08:52:32Z,INFO,bmw_ix1_xdrive30,BMW iX1 xDrive30,Extracted 2 path(s).
+2026-05-19T08:52:33Z,INFO,smart_1_pro_plus,Smart #1 Pro Plus,Model clicked (attempt 1).
+2026-05-19T08:52:33Z,INFO,smart_1_pro_plus,Smart #1 Pro Plus,Extracted 71 point(s).
+2026-05-19T08:52:33Z,INFO,smart_1_pro_plus,Smart #1 Pro Plus,Extracted 2 path(s).
+2026-05-19T08:52:33Z,INFO,kia_ev3_58_3_kwh_earth,"KIA EV3 58,3 kWh Earth",Model clicked (attempt 1).
+2026-05-19T08:52:34Z,INFO,kia_ev3_58_3_kwh_earth,"KIA EV3 58,3 kWh Earth",Extracted 71 point(s).
+2026-05-19T08:52:34Z,INFO,kia_ev3_58_3_kwh_earth,"KIA EV3 58,3 kWh Earth",Extracted 2 path(s).
+2026-05-19T08:52:34Z,INFO,byd_seal_rwd,BYD Seal RWD,Model clicked (attempt 1).
+2026-05-19T08:52:35Z,INFO,byd_seal_rwd,BYD Seal RWD,Extracted 71 point(s).
+2026-05-19T08:52:35Z,INFO,byd_seal_rwd,BYD Seal RWD,Extracted 1 path(s).
+2026-05-19T08:52:35Z,INFO,volvo_ex30_twin_motor_performance_cross_country_ultra_awd,Volvo EX30 Twin Motor Performance Cross Country Ultra AWD,Model clicked (attempt 1).
+2026-05-19T08:52:35Z,INFO,volvo_ex30_twin_motor_performance_cross_country_ultra_awd,Volvo EX30 Twin Motor Performance Cross Country Ultra AWD,Extracted 71 point(s).
+2026-05-19T08:52:35Z,INFO,volvo_ex30_twin_motor_performance_cross_country_ultra_awd,Volvo EX30 Twin Motor Performance Cross Country Ultra AWD,Extracted 2 path(s).
+2026-05-19T08:52:36Z,INFO,volvo_ex30_sm_er,Volvo EX30 SM ER,Model clicked (attempt 1).
+2026-05-19T08:52:36Z,INFO,volvo_ex30_sm_er,Volvo EX30 SM ER,Extracted 71 point(s).
+2026-05-19T08:52:36Z,INFO,volvo_ex30_sm_er,Volvo EX30 SM ER,Extracted 2 path(s).
+2026-05-19T08:52:36Z,INFO,peugeot_e_208_156,Peugeot e-208 156,Model clicked (attempt 1).
+2026-05-19T08:52:37Z,INFO,peugeot_e_208_156,Peugeot e-208 156,Extracted 71 point(s).
+2026-05-19T08:52:37Z,INFO,peugeot_e_208_156,Peugeot e-208 156,Extracted 2 path(s).
+2026-05-19T08:52:37Z,INFO,mini_aceman_se_favoured_trim,MINI Aceman SE Favoured Trim,Model clicked (attempt 1).
+2026-05-19T08:52:38Z,INFO,mini_aceman_se_favoured_trim,MINI Aceman SE Favoured Trim,Extracted 71 point(s).
+2026-05-19T08:52:38Z,INFO,mini_aceman_se_favoured_trim,MINI Aceman SE Favoured Trim,Extracted 2 path(s).
+2026-05-19T08:52:38Z,INFO,kia_niro_ev_64_8_kwh,"Kia Niro EV 64,8 kWh",Model clicked (attempt 1).
+2026-05-19T08:52:38Z,INFO,kia_niro_ev_64_8_kwh,"Kia Niro EV 64,8 kWh",Extracted 71 point(s).
+2026-05-19T08:52:38Z,INFO,kia_niro_ev_64_8_kwh,"Kia Niro EV 64,8 kWh",Extracted 2 path(s).
+2026-05-19T08:52:39Z,INFO,opel_astra_elekctric_gs,Opel Astra Elekctric GS,Model clicked (attempt 1).
+2026-05-19T08:52:39Z,INFO,opel_astra_elekctric_gs,Opel Astra Elekctric GS,Extracted 71 point(s).
+2026-05-19T08:52:39Z,INFO,opel_astra_elekctric_gs,Opel Astra Elekctric GS,Extracted 2 path(s).
+2026-05-19T08:52:39Z,WARNING,opel_astra_elekctric_gs,Opel Astra Elekctric GS,SVG series label differs from table display_name; accepted as fuzzy match: opel_astra_electric
+2026-05-19T08:52:39Z,INFO,mercedes_benz_eqb_350,Mercedes-Benz EQB 350,Model clicked (attempt 1).
+2026-05-19T08:52:40Z,INFO,mercedes_benz_eqb_350,Mercedes-Benz EQB 350,Extracted 71 point(s).
+2026-05-19T08:52:40Z,INFO,mercedes_benz_eqb_350,Mercedes-Benz EQB 350,Extracted 2 path(s).
+2026-05-19T08:52:40Z,INFO,peugeot_e_308_156,Peugeot e-308 156,Model clicked (attempt 1).
+2026-05-19T08:52:41Z,INFO,peugeot_e_308_156,Peugeot e-308 156,Extracted 71 point(s).
+2026-05-19T08:52:41Z,INFO,peugeot_e_308_156,Peugeot e-308 156,Extracted 2 path(s).
+2026-05-19T08:52:41Z,INFO,subaru_solterra,Subaru Solterra,Model clicked (attempt 1).
+2026-05-19T08:52:41Z,INFO,subaru_solterra,Subaru Solterra,Extracted 71 point(s).
+2026-05-19T08:52:41Z,INFO,subaru_solterra,Subaru Solterra,Extracted 2 path(s).
+2026-05-19T08:52:42Z,INFO,renault_r5_e_tech_electric_150_comfort_range_techno,Renault R5 E-Tech Electric 150 Comfort Range Techno,Model clicked (attempt 1).
+2026-05-19T08:52:42Z,INFO,renault_r5_e_tech_electric_150_comfort_range_techno,Renault R5 E-Tech Electric 150 Comfort Range Techno,Extracted 71 point(s).
+2026-05-19T08:52:42Z,INFO,renault_r5_e_tech_electric_150_comfort_range_techno,Renault R5 E-Tech Electric 150 Comfort Range Techno,Extracted 2 path(s).
+2026-05-19T08:52:42Z,WARNING,renault_r5_e_tech_electric_150_comfort_range_techno,Renault R5 E-Tech Electric 150 Comfort Range Techno,SVG series label differs from table display_name; accepted as fuzzy match: renault_r5_e_tech_electric_150_comfort_range
+2026-05-19T08:52:42Z,INFO,mercedes_benz_eqa_250,Mercedes-Benz EQA 250,Model clicked (attempt 1).
+2026-05-19T08:52:43Z,INFO,mercedes_benz_eqa_250,Mercedes-Benz EQA 250,Extracted 71 point(s).
+2026-05-19T08:52:43Z,INFO,mercedes_benz_eqa_250,Mercedes-Benz EQA 250,Extracted 2 path(s).

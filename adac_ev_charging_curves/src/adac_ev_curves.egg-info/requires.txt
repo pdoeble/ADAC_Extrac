@@ -1,0 +1,8 @@
+playwright>=1.40
+pandas>=2.0
+pyarrow>=14.0
+pydantic>=2.0
+dash>=4.0
+
+[test]
+pytest>=7.0

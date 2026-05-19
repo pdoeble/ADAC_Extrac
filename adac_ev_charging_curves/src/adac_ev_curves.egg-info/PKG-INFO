@@ -1,0 +1,145 @@
+Metadata-Version: 2.4
+Name: adac-ev-curves
+Version: 0.1.0
+Summary: Extract ADAC/Infogram EV charging curves from rendered SVG data points.
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: playwright>=1.40
+Requires-Dist: pandas>=2.0
+Requires-Dist: pyarrow>=14.0
+Requires-Dist: pydantic>=2.0
+Requires-Dist: dash>=4.0
+Provides-Extra: test
+Requires-Dist: pytest>=7.0; extra == "test"
+
+# ADAC / Infogram EV Charging Curves
+
+Dieses Projekt extrahiert die Fahrzeugtabelle und die gerenderten SVG-Ladekurven aus dem ADAC/Infogram-Embed:
+
+<https://www.adac.de/infogram/a194a8ff-52a8-41cb-bd33-e553c66f04f8/?parent_url=https%3A%2F%2Fwww.adac.de%2Frund-ums-fahrzeug%2Felektromobilitaet%2Fladen%2Fschnellladen-langstrecke-ladekurven-2026%2F&src=embed#async_embed>
+
+Die Primärdatenquelle für Kurvenpunkte sind `circle.igc-data-point`-Elemente im gerenderten SVG. Das `aria-label` wird zuerst geparst; der SVG-`path d` wird zusätzlich als Audit-Information gespeichert und nicht als Primärdatenquelle behandelt.
+
+## Installation
+
+```bash
+python -m pip install -r requirements.txt
+python -m playwright install chromium
+```
+
+Für lokale Entwicklung:
+
+```bash
+python -m pip install -e .
+```
+
+## Conda-Environment
+
+Alternativ kann ein reproduzierbares Conda-Environment aus der YAML gebaut werden:
+
+```bash
+conda env create -f environment.yml
+conda activate adac-ev-curves
+python -m pip install -e .
+python -m playwright install chromium
+```
+
+Wenn das Environment schon existiert:
+
+```bash
+conda env update -f environment.yml --prune
+conda activate adac-ev-curves
+python -m pip install -e .
+python -m playwright install chromium
+```
+
+## Ausführung
+
+Empfohlener erster Probelauf:
+
+```bash
+python -m adac_ev_curves.cli extract ^
+  --url "https://www.adac.de/infogram/a194a8ff-52a8-41cb-bd33-e553c66f04f8/?parent_url=https%3A%2F%2Fwww.adac.de%2Frund-ums-fahrzeug%2Felektromobilitaet%2Fladen%2Fschnellladen-langstrecke-ladekurven-2026%2F&src=embed#async_embed" ^
+  --out output ^
+  --headless false ^
+  --limit 3 ^
+  --debug
+```
+
+Headless-Lauf für alle Modelle:
+
+```bash
+python -m adac_ev_curves.cli extract --out output --headless true
+```
+
+Optionen:
+
+- `--url`: Infogram-URL oder ADAC-Hauptartikel-URL
+- `--out`: Ausgabeverzeichnis
+- `--headless`: `true` oder `false`
+- `--delay-ms`: Wartezeit nach Modellklick, Standard `500`
+- `--limit`: optional nur die ersten N Modelle extrahieren
+- `--save-html`: HTML-Snapshots in `raw/` speichern
+- `--save-svg`: SVG-Snapshots in `raw/` speichern
+- `--debug`: speichert HTML- und SVG-Snapshots und schreibt ausführliche Logs
+
+## Ausgabe
+
+Nach einem erfolgreichen Lauf liegen im Ausgabeverzeichnis:
+
+- `vehicles.csv`
+- `charging_curve_points.csv`
+- `charging_curve_paths.csv`
+- `source_metadata.json`
+- `extraction_log.csv`
+- `raw/`
+
+`vehicles.csv` enthält generische Tabellenwerte als `table_values_json` plus normalisierte Spalten, soweit aus den Tabellenüberschriften ableitbar. `charging_curve_points.csv` enthält pro Fahrzeug sortierte Wertepaare aus `soc_percent` und `charging_power_kw` sowie SVG-Koordinaten und das Original-`aria-label`.
+
+## Extraktionslogik
+
+1. Playwright lädt die direkte Infogram-URL oder den ADAC-Hauptartikel.
+2. Bei Hauptartikel-URLs wird das Infogram-`iframe` gesucht und als aktiver Frame verwendet.
+3. Die interaktive Tabelle wird bevorzugt als echtes HTML-`table` gelesen.
+4. Pro Zeile wird der sichtbare Fahrzeugname, der Tabellenrohtext und ein Satz Header/Wert-Paare gespeichert.
+5. Für Infogram sitzt die Kurvenumschaltung in der zweiten, optisch leeren Tabellenspalte als Link mit `aria-label="Switch chart tab"`. Dieser Link wird pro Fahrzeug geklickt.
+6. Danach werden SVG-Kurvenpunkte aus `circle.igc-data-point` gelesen. Unterstützte `aria-label`-Formate sind unter anderem:
+   - `Modellname: X: 99.9, Y: 46`
+   - `Modellname: 10%: 104,7`
+   - `Modellname: 10: 296,2`
+7. Zusätzliche Pfade aus `path.igc-graph-line-path` werden für Audit-Zwecke gespeichert.
+
+## Tests
+
+```bash
+python -m pytest
+```
+
+Die Tests prüfen das Parsing der `aria-label`s, eindeutige Fahrzeug-IDs und die CSV-Pflichtspalten.
+
+## Interaktive GUI
+
+Nach einer Extraktion kann eine lokale Plotly/Dash-Oberfläche gestartet werden:
+
+```bash
+python -m adac_ev_curves.gui --data output --host 127.0.0.1 --port 8050
+```
+
+Alternativ über die gemeinsame CLI:
+
+```bash
+python -m adac_ev_curves.cli gui --data output
+```
+
+Die Oberfläche enthält:
+
+- eine auswählbare Fahrzeugtabelle mit ADAC-Metadaten und Checkboxen
+- Buttons für `Alle auswählen` und `Keine auswählen`
+- frei wählbare X- und Y-Achsen, darunter SOC, absolute Ladeleistung in kW und relative Ladeleistung in Prozent des Fahrzeug-Maximums
+- Linienfarben nach Fahrzeug, Hersteller oder kontinuierlichen Größen wie beobachteter Maximalleistung und Reichweitenwerten
+- SVG-Export über den Button `SVG exportieren`
+- zusätzlich Plotly-Modebar-Export als SVG
+
+## Methodische Hinweise
+
+Die extrahierten Werte sind gerenderte/aufbereitete Website-Daten. Für wissenschaftliche Nutzung sollten Quelle, URL, Extraktionszeitpunkt, Parser-Version und der Hinweis dokumentiert werden, dass die SVG-Pfade nur Audit-Daten sind.

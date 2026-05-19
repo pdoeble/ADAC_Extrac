@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "adac-ev-curves"
+version = "0.1.0"
+description = "Extract ADAC/Infogram EV charging curves from rendered SVG data points."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "playwright>=1.40",
+  "pandas>=2.0",
+  "pyarrow>=14.0",
+  "pydantic>=2.0",
+  "dash>=4.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

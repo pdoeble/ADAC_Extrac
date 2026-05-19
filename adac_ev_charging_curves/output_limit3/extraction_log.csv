@@ -1,0 +1,13 @@
+timestamp_utc,level,vehicle_id,display_name,message
+2026-05-19T08:53:42Z,INFO,mercedes_benz_cla_coupe_250_eq_progressive,Mercedes-Benz CLA Coupe 250+ EQ Progressive,Model recognized from table.
+2026-05-19T08:53:42Z,INFO,porsche_taycan_performancebatterie_plus,Porsche Taycan Performancebatterie Plus,Model recognized from table.
+2026-05-19T08:53:42Z,INFO,mercedes_benz_eqs_450_amg_line,Mercedes-Benz EQS 450+ AMG Line,Model recognized from table.
+2026-05-19T08:53:42Z,INFO,mercedes_benz_cla_coupe_250_eq_progressive,Mercedes-Benz CLA Coupe 250+ EQ Progressive,Model clicked (attempt 1).
+2026-05-19T08:53:43Z,INFO,mercedes_benz_cla_coupe_250_eq_progressive,Mercedes-Benz CLA Coupe 250+ EQ Progressive,Extracted 71 point(s).
+2026-05-19T08:53:43Z,INFO,mercedes_benz_cla_coupe_250_eq_progressive,Mercedes-Benz CLA Coupe 250+ EQ Progressive,Extracted 2 path(s).
+2026-05-19T08:53:43Z,INFO,porsche_taycan_performancebatterie_plus,Porsche Taycan Performancebatterie Plus,Model clicked (attempt 1).
+2026-05-19T08:53:44Z,INFO,porsche_taycan_performancebatterie_plus,Porsche Taycan Performancebatterie Plus,Extracted 71 point(s).
+2026-05-19T08:53:44Z,INFO,porsche_taycan_performancebatterie_plus,Porsche Taycan Performancebatterie Plus,Extracted 2 path(s).
+2026-05-19T08:53:44Z,INFO,mercedes_benz_eqs_450_amg_line,Mercedes-Benz EQS 450+ AMG Line,Model clicked (attempt 1).
+2026-05-19T08:53:44Z,INFO,mercedes_benz_eqs_450_amg_line,Mercedes-Benz EQS 450+ AMG Line,Extracted 71 point(s).
+2026-05-19T08:53:44Z,INFO,mercedes_benz_eqs_450_amg_line,Mercedes-Benz EQS 450+ AMG Line,Extracted 2 path(s).
