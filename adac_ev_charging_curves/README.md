@@ -1,3 +1,15 @@
+---
+canonical_status: unknown
+normative_status: binding
+lifecycle_state: unknown
+currency_assessment: not_assessed
+audit_role: core
+scope: project
+review_disposition: review
+provenance_origin: local_project_authoring
+document_kind: technical_or_research_note
+derivation: direct_authoring
+---
 # ADAC / Infogram EV Charging Curves
 
 http://127.0.0.1:8050
